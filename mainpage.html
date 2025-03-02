@@ -7,28 +7,36 @@
     <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous" defer></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/signup.js" defer></script>
    </head>
    <body>
+    <div class = "maincontent">
+
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Profile</a>
-        <a href="#">Lessons</a>
-        <a href="#">Inbox</a>
-        <a href="#">Moderator Tools</a>
+        <a href="profile.html">Profile</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="inbox.html">Inbox</a>
+        <a href="modpage.html">Moderator Tools</a>
       </div>
     <main id = "main">
         <section class="main-heading">
             <button class="sidebar-btn" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-            <h1 class="header-text">The 'Mancer Zone</h1>
+            <h1 class="header-text"><a href='mainpage.html'>The 'Mancer Zone</a></h1>
             <div class="logsign">
-                <p>Login</p>
+                <p><a href='loginpage.html'>Login</a></p>
                 <p>|</p>
-                <p>Signup</p>
+                <p><a href='signuppage.html'>Signup</a></p>
             </div>
         </section>
         <section class = "search">
             <input type="text" id = "searchbox" placeholder="Start your Wizarding Search Today">
-            <button class="searchbtn" onclick="search"><i class="fa-solid fa-arrow-right"></i></button>
+            <button class="searchbtn" onclick="location.href='search.html'"><i class="fa-solid fa-arrow-right"></i></button>
         </section>
         <section class = "main-gallery">
             <div id="carouselControl1" class="carousel slide" data-interval='0'>
@@ -37,19 +45,19 @@
                     <div class="carousel-item active">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s1m"></a>
                                 <p>Slide 1 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s2m"></a>
                                 <p>Slide 1 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s3m"></a>
                                 <p>Slide 1 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s4m"></a>
                                 <p>Slide 1 Image 4</p>
                             </div>
                         </div>
@@ -57,19 +65,19 @@
                       <div class="carousel-item">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s1m"></a>
                                 <p>Slide 2 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s2m"></a>
                                 <p>Slide 2 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s3m"></a>
                                 <p>Slide 2 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s4m"></a>
                                 <p>Slide 2 Image 4</p>
                             </div>
                         </div>
@@ -77,19 +85,19 @@
                       <div class="carousel-item">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s1m"></a>
                                 <p>Slide 3 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s2m"></a>
                                 <p>Slide 3 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s3m"></a>
                                 <p>Slide 3 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s4m"></a>
                                 <p>Slide 3 Image 4</p>
                             </div>
                         </div>
@@ -111,19 +119,19 @@
                     <div class="carousel-item active">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s1m"></a>
                                 <p>Slide 1 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s2m"></a>
                                 <p>Slide 1 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s3m"></a>
                                 <p>Slide 1 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="1s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s4m"></a>
                                 <p>Slide 1 Image 4</p>
                             </div>
                         </div>
@@ -131,19 +139,19 @@
                       <div class="carousel-item">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s1m"></a>
                                 <p>Slide 2 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s2m"></a>
                                 <p>Slide 2 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s3m"></a>
                                 <p>Slide 2 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="2s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s4m"></a>
                                 <p>Slide 2 Image 4</p>
                             </div>
                         </div>
@@ -151,19 +159,19 @@
                       <div class="carousel-item">
                         <div class="multislide">
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s1m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s1m"></a>
                                 <p>Slide 3 Image 1</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s2m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s2m"></a>
                                 <p>Slide 3 Image 2</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s3m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s3m"></a>
                                 <p>Slide 3 Image 3</p>
                             </div>
                             <div class="captionpair">
-                                <img class="cImage" src="./img/placeholder.jpg" alt="3s4m">
+                                <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s4m"></a>
                                 <p>Slide 3 Image 4</p>
                             </div>
                         </div>
@@ -185,19 +193,19 @@
                   <div class="carousel-item active">
                     <div class="multislide">
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="1s1m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s1m"></a>
                             <p>Slide 1 Image 1</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="1s2m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s2m"></a>
                             <p>Slide 1 Image 2</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="1s3m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s3m"></a>
                             <p>Slide 1 Image 3</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="1s4m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s4m"></a>
                             <p>Slide 1 Image 4</p>
                         </div>
                     </div>
@@ -205,19 +213,19 @@
                   <div class="carousel-item">
                     <div class="multislide">
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="2s1m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s1m"></a>
                             <p>Slide 2 Image 1</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="2s2m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s2m"></a>
                             <p>Slide 2 Image 2</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="2s3m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s3m"></a>
                             <p>Slide 2 Image 3</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="2s4m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s4m"></a>
                             <p>Slide 2 Image 4</p>
                         </div>
                     </div>
@@ -225,19 +233,19 @@
                   <div class="carousel-item">
                     <div class="multislide">
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="3s1m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s1m"></a>
                             <p>Slide 3 Image 1</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="3s2m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s2m"></a>
                             <p>Slide 3 Image 2</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="3s3m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s3m"></a>
                             <p>Slide 3 Image 3</p>
                         </div>
                         <div class="captionpair">
-                            <img class="cImage" src="./img/placeholder.jpg" alt="3s4m">
+                            <a href = 'profile.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s4m"></a>
                             <p>Slide 3 Image 4</p>
                         </div>
                     </div>
@@ -253,14 +261,10 @@
                 </a>
               </div>
         </section>
-        <section class = "footer">
-            <h2>Wizard Co.</h2>
-        </section>
     </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
+</div>
+<footer class = "footer">
+    <h2>Wizard Co.</h2>
+</footer>
    </body>
 </html>
