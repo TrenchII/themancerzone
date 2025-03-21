@@ -37,6 +37,8 @@
             <section class = 'filler'></section>
             <form
             id="form"
+            action="php/register.php"
+            enctype="multipart/form-data"
             method="post"
             novalidate>
             <section class="formbox">
@@ -44,26 +46,26 @@
                 <div class="formboxlabel">
                     <p class = 'inputlabel'>Display Name</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your display name" required>
+                        <input type="text" class="formcontrol" name="displayname" placeholder="Enter your display name" required>
                     </div>
                     <p class = 'inputlabel'>Username</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your username" required>
+                        <input type="text" class="formcontrol" name="username" placeholder="Enter your username" required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your password" required>
+                        <input type="password" class="formcontrol"  name="password" placeholder="Enter your password" required>
                     </div>
                     <p class = 'inputlabel'>Re-enter Password</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Re-enter your password" required>
+                        <input type="password" class="formcontrol" name="confirm_password" placeholder="Re-enter your password" required>
                     </div>
                     <div id="filesubmit">
                         <p class = 'inputlabel'>Profile Picture</p>
                         <input type="file" id="img" name="img" accept="image/*" required>
                     </div>               
                 </div>
-                <h2 class="toolbutton submit"><a href='mainpage.html'>Submit</a></h2>
+                <input type="submit" class="toolbutton submit" value="Submit">
             </form>
             </section>
         </main>
