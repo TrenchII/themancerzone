@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `users`
 --
 CREATE TABLE `pfp` (
-    `pfpid` int NOT NULL,
-    `image` LONGBLOB NOT NULL
+    `pfpid` int NOT NULL AUTO_INCREMENT,
+    `image` LONGBLOB NOT NULL,
+    PRIMARY KEY (pfpid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
@@ -45,7 +46,7 @@ CREATE TABLE `users` (
 
 
 CREATE TABLE `lesson` (
-    `lessonid` int NOT NULL,
+    `lessonid` int NOT NULL AUTO_INCREMENT,
     `title` varchar(255) NOT NULL,
     `description` longtext NOT NULL,
     `keyword` longtext NOT NULL,
