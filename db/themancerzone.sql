@@ -53,7 +53,9 @@ CREATE TABLE `lesson` (
     `keyword` longtext NOT NULL,
     `school` longtext NOT NULL,
     `date` DATETIME NOT NULL,
-    PRIMARY KEY (lessonid)
+    `pfpid` int NOT NULL,
+    PRIMARY KEY (lessonid),
+    FOREIGN KEY (pfpid) REFERENCES pfp(pfpid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `createdlessons` (

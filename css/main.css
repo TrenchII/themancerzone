@@ -254,6 +254,7 @@ section {
     border-radius:10px;
     text-align:center;
     height:3em;
+    margin-bottom:2em;
 }
 .main-gallery-small {
     display:flex;
@@ -379,6 +380,13 @@ text-align: center;
     margin-bottom:0.25em;
     font-weight: bold;
 }
+.chitinputlabel {
+    text-align: left;
+    width:85%;
+    margin-top:1em;
+    margin-bottom:0.25em;
+    font-weight: bold;
+}
 .formbox > h1 {
     margin-bottom:-0.5em;
     font-weight: bold;
@@ -413,14 +421,14 @@ text-align: center;
 }
 .chitmatrix {
     display:flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
     width:85%;
-    gap:2em;
+    gap:1em;
 }
 .chitlight {
-    width:5em;
+    width:10em;
     background-color: #FAF3E0;
     color: #1C1C1C;
 }
@@ -428,7 +436,7 @@ text-align: center;
     background-color: #ada99b;
 }
 .chitdark {
-    width:5em;
+    width:10em;
     background-color: #1C1C1C;
     color: #FAF3E0;
 }
@@ -454,4 +462,10 @@ a:hover, a:visited, a:link, a:active {
 }
 a:hover {
     color: #ada99b;
+}
+.hiddencheck {
+    display:none;
+}
+.chit-btn>label {
+    position:absolute;
 }

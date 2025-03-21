@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
     <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous" defer></script>
     <script src="./js/main.js" defer></script>
-    <script src="./js/signup.js" defer></script>
+    <script src="./js/createlesson.js" defer></script>
     <script src="./js/toggle.js" defer></script>
    </head>
     <body>
@@ -37,44 +37,77 @@
             </section>
             <form
             id="form"
+            action="php/createlesson.php"
             method="post"
+            enctype="multipart/form-data"
             novalidate
-            style="margin-top:-1em;">
+            style="margin-top:-1em; width:60%;">
+            
             <section class="formbox">
                 <h1>Create Lesson</h1>
                 <div class="formboxlabel">
                     <p class = 'inputlabel'>Title</p>
                     <div style="width:100%">
-                        <input type="text" class="formcontrol" placeholder="Enter a title" required>
+                        <input type="text" class="formcontrol" name = 'title' placeholder="Enter a title" required>
                     </div>
                     <p class = 'inputlabel'>Description</p>
                     <div style="width:100%">
-                        <input type="text" class="desc" placeholder="Enter a short summary of your lesson" required>
+                        <input type="text" class="desc" name = 'desc' placeholder="Enter a short summary of your lesson" required>
                     </div>
-                    <p class = 'inputlabel'>Keywords</p>
+                    <p class = 'chitinputlabel'>Keywords</p>
                     <div class = "chitmatrix">
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <p class="toolbutton" style="white-space: nowrap;">See More...</p>
+                        <input type="checkbox" class='hiddencheck' name= 'kBeginner' id = 'Beginner'>
+                        <button class="chitlight chit-btn" id = 'Beginner'>Beginner</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kMedium' id = 'Medium'>
+                        <button class="chitlight chit-btn" id = 'Medium'>Medium</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kDifficult' id = 'Difficult'>
+                        <button class="chitlight chit-btn" id = 'Difficult'>Difficult</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kExpert' id = 'Expert'>
+                        <button class="chitlight chit-btn" id = 'Expert'>Expert</button>
                     </div>
-                    <p class = 'inputlabel'>School</p>
                     <div class = "chitmatrix">
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <button class="chitlight chit-btn">Magic</button>
-                        <p class="toolbutton" style="white-space: nowrap;">See More...</p>
+                        <input type="checkbox" class='hiddencheck' name= 'kSpellwork' id = 'Spellwork'>
+                        <button class="chitlight chit-btn" id = 'Spellwork'>Spellwork</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kAlchemy' id = 'Alchemy'>
+                        <button class="chitlight chit-btn" id = 'Alchemy'>Alchemy</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kBrewing' id = 'Brewing'>
+                        <button class="chitlight chit-btn" id = 'Brewing'>Brewing</button>
+                        <input type="checkbox" class='hiddencheck' name= 'kApplied' id = 'Applied'>
+                        <button class="chitlight chit-btn" id = 'Applied'>Applied</button>
+                    </div>
+                    <p class = 'chitinputlabel'>School</p>
+                    <div class = "chitmatrix">
+                        <input type="checkbox" class='hiddencheck' name= 'sAbjuration' id = 'Abjuration'>
+                        <button class="chitlight chit-btn" id = 'Abjuration'>Abjuration</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sConjuration' id = 'Conjuration'>
+                        <button class="chitlight chit-btn" id = 'Conjuration'>Conjuration</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sDivination' id = 'Divination'>
+                        <button class="chitlight chit-btn" id = 'Divination'>Divination</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sEnchantment' id = 'Enchantment'>
+                        <button class="chitlight chit-btn" id = 'Enchantment'>Enchantment</button>
+                    </div>
+                    <div class = "chitmatrix">
+                        <input type="checkbox" class='hiddencheck' name= 'sEvocation' id = 'Evocation'>
+                        <button class="chitlight chit-btn" id = 'Evocation'>Evocation</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sIllusion' id = 'Illusion'>
+                        <button class="chitlight chit-btn" id = 'Illusion'>Illusion</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sNecromancy' id = 'Necromancy'>
+                        <button class="chitlight chit-btn" id = 'Necromancy'>Necromancy</button>
+                        <input type="checkbox" class='hiddencheck' name= 'sTransmutation' id = 'Transmutation'>
+                        <button class="chitlight chit-btn" id = 'Transmutation'>Transmutation</button>
                     </div>
                     <p class = 'inputlabel'>Date (DD/MM/YYYY)</p>
                     <div style="width:100%">
-                        <input type="text" class="formcontrol" placeholder="Enter your password" required>
+                        <input type="text" class="formcontrol" name="date" placeholder="DD/MM/YY" required>
                     </div>
                     <p class = 'inputlabel'>Time (HH:MM PST 24 hour)</p>
                     <div style="width:100%">
-                        <input type="text" class="formcontrol" placeholder="Re-enter your password" required>
-                    </div>            
+                        <input type="text" class="formcontrol" name = "time" placeholder="HH:MM" required>
+                    </div>
+                    <div id="filesubmit">
+                        <p class = 'inputlabel'>Lesson Photo</p>
+                        <input type="file" id = "img" name = "img" accept="image/png,image/jpeg" required>
+                    </div>                    
                 </div>
                 <input type="submit" class="toolbutton submit" value="Submit">
             </form>
