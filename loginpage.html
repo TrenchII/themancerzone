@@ -30,6 +30,7 @@
             <section class = 'filler'></section>
             <form
             id="form"
+            action="php/login.php"
             method="post"
             novalidate>
             <section class="formbox">
@@ -37,14 +38,14 @@
                 <div class="formboxlabel">
                     <p class = 'inputlabel'>Username</p>
                     <div style="width:100%">
-                        <input type="text" class="formcontrol" placeholder="Enter your Username" required>
+                        <input type="text" class="formcontrol" name="username" placeholder="Enter your Username" required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
                     <div style="width:100%">
-                        <input type="text" class="formcontrol" placeholder="Enter your Password" required>
+                        <input type="password" class="formcontrol" name="password" placeholder="Enter your Password" required>
                     </div>                  
                 </div>
-                <h2 class="toolbutton submit"><a href='mainpage.html'>Submit</a></h2>
+                <input type="submit" class="toolbutton submit" value="Submit">
             </form>
             </section>
         </main>

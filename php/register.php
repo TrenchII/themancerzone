@@ -16,13 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $img = $_FILES['img']['tmp_name'];
     $filetype = $_FILES['img']['type'];
     $imgdata = base64_encode(file_get_contents($img));
-    $sql = "SELECT COUNT(username) FROM users WHERE username = '$username'";
+    $sql = "SELECT username FROM users WHERE username = '$username'";
 
-    $result = mysqli_query($connection, $sql);
 
-    $row = mysqli_fetch_assoc($result);
-
-    if ($row['COUNT(username)'] != 0) {
+    if (mysqli_num_rows($result = mysqli_query($connection, $sql)) != 0) {
         $alreadyexists = true;
     }
 
@@ -34,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $sql = "START TRANSACTION";
         mysqli_query($connection, $sql);
 
-        $sql = "INSERT INTO pfp (`image`, `imagetype`) VALUES ('$imgdata','$filetype')";
+        $sql = "INSERT INTO pfp (`image`, `type`) VALUES ('$imgdata','$filetype')";
         mysqli_query($connection, $sql);
         $sql = "SELECT pfpid FROM pfp WHERE";
         $pwordhash = md5($pword);
@@ -43,14 +40,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         mysqli_query($connection, $sql);
         $sql = "COMMIT";
         mysqli_query($connection, $sql);
-
-        $sql = "SELECT `image`,`imagetype` FROM pfp LIMIT 1";
+        /*  $sql = "SELECT `image`,`type` FROM pfp WHERE pfpid = '$pfpid'";
         $result = mysqli_query($connection, $sql);
         $row = mysqli_fetch_assoc($result);
         ob_end_clean();
-        header("Content-type: " . $row['imagetype']);
+        header("Content-type: " . $row['type']);
         $di = base64_decode($row['image']);
         echo($di);
+        */
+        echo "<img src='image.php?pfpid=".$pfpid."'/>";
     }
 }
 else {

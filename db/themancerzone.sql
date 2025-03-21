@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `pfp` (
     `pfpid` int NOT NULL AUTO_INCREMENT,
     `image` LONGBLOB NOT NULL,
+    `type` varchar(255) NOT NULL,
     PRIMARY KEY (pfpid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,6 +70,17 @@ CREATE TABLE `enrolledlessons` (
     PRIMARY KEY (username),
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (lessonid) REFERENCES lesson(lessonid)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `message` (
+    `messageid` int NOT NULL AUTO_INCREMENT,
+    `rusername` varchar(255) NOT NULL,
+    `susername` varchar(255) NOT NULL,
+    `message` longtext NOT NULL,
+    `date` DATETIME NOT NULL,
+    PRIMARY KEY  (messageid),
+    FOREIGN KEY (rusername) REFERENCES users(username),
+    FOREIGN KEY (susername) REFERENCES users(username)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP USER IF EXISTS 'webuser'@'localhost';

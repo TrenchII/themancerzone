@@ -4,25 +4,39 @@
 
 <?php
 
-require_once 'db_connect.php';
+require_once 'connectDB.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $alreadyexists = false;
+    $exists = false;
     echo "<p>Succesfully connected to database!</p>";
     $username = mysqli_real_escape_string($connection,$_POST['username']);
-    $pword = md5(mysqli_real_escape_string($connection,$_POST['password']));
+    $pword = mysqli_real_escape_string($connection,$_POST['password']);
+    $sql = "SELECT COUNT(username) FROM users WHERE username = '$username'";
 
-    $sql = "SELECT COUNT(username) FROM users WHERE username = '$username' and `password` = '$pword'";
     $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if ($row['COUNT(username)'] != 0) {
-        echo "<p> User had a valid account </p>";
+
+    if (mysqli_num_rows($result = mysqli_query($connection, $sql)) != 0) {
+        $exists = true;
+    }
+
+    if(!$exists) {
+        echo "<p>No User Exists</p>";
+        echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'> Return to user entry</a>";
     }
     else {
-        echo "<p> Username and/or password are invalid";
+        $sql = "SELECT password FROM users WHERE username = '$username'";
+        $result = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($result);
+        if($row['password'] = md5($pword)) {
+            echo "<p> Hello, " . $username . ", you are now logged in!";
+            echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'> Return to user entry</a>";
+        }
+        else {
+            echo "<p> Incorrect Pasword </p>";
+            echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'> Return to user entry</a>";
+        }
     }
-
 }
 else {
     echo 'ERROR! Bad Request Method Detected';
