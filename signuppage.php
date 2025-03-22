@@ -15,6 +15,10 @@
     <script src="./js/signup.js" defer></script>
    </head>
     <body>
+    <?php 
+        session_start();
+        session_unset();
+        session_destroy();?>
         <div class = "maincontent">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -25,44 +29,50 @@
               </div>
             <main id = "main">
                 <section class="main-heading">
-                    <button class="sidebar-btn" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-                    <h1 class="header-text"><a href='mainpage.html'>The 'Mancer Zone</a></h1>
+                    <button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>
+                    <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
                     <div class="logsign">
-                        <p><a href='loginpage.html'>Login</a></p>
-                        <p>|</p>
-                        <p><a href='signuppage.html'>Signup</a></p>
+                        <p><a href='loginpage.php'></a></p>
+                        <p></p>
+                        <p><a href='loginpage.php'>Login</a></p>
                     </div>
+                </section>
             </section>
             <section class = 'filler'></section>
             <form
             id="form"
+            action="php/register.php"
             method="post"
+            enctype="multipart/form-data"
             novalidate>
             <section class="formbox">
-                <h1>Edit Profile</h1>
+                <h1>Signup</h1>
                 <div class="formboxlabel">
                     <p class = 'inputlabel'>Display Name</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your display name" required>
+                        <input type="text" class="formcontrol" name="displayname" placeholder="Enter your display name" required>
                     </div>
                     <p class = 'inputlabel'>Username</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your username" required>
+                        <input type="text" class="formcontrol" name="username" placeholder="Enter your username" required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Enter your password" required>
+                        <input type="password" class="formcontrol"  name="password" placeholder="Enter your password" required>
                     </div>
-                    <p class = 'inputlabel'>Password</p>
+                    <p class = 'inputlabel'>Re-enter Password</p>
                     <div style="width:100%">
-                        <input type="text" class="login" placeholder="Re-enter your password" required>
+                        <input type="password" class="formcontrol" name="confirm_password" placeholder="Re-enter your password" required>
                     </div>
                     <div id="filesubmit">
                         <p class = 'inputlabel'>Profile Picture</p>
-                        <input type="file" id="img" name="img" accept="image/*" required>
+                        <input type="file" id = "img" name = "img" accept="image/png,image/jpeg" required>
                     </div>               
                 </div>
-                <h2 class="toolbutton submit"><a href='profile.html'>Submit</a></h2>
+                <?php if(isset($_GET['failed'])) {
+                    echo "<p style='color:red; font-weight:bold; text-align:center;'>".$_GET['failtext']."</p>";
+                }?>
+                <input type="submit" class="toolbutton submit" value="Submit">
             </form>
             </section>
         </main>

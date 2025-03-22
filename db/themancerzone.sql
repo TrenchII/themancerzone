@@ -61,7 +61,8 @@ CREATE TABLE `lesson` (
 CREATE TABLE `createdlessons` (
     `username` varchar(255) NOT NULL,
     `lessonid` int NOT NULL,
-    PRIMARY KEY (username),
+    `createid` int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (createid),
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (lessonid) REFERENCES lesson(lessonid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -69,7 +70,8 @@ CREATE TABLE `createdlessons` (
 CREATE TABLE `enrolledlessons` (
     `username` varchar(255) NOT NULL,
     `lessonid` int NOT NULL,
-    PRIMARY KEY (username),
+    `enrollid` int NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (enrollid),
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (lessonid) REFERENCES lesson(lessonid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

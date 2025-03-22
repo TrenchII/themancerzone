@@ -41,6 +41,7 @@
                         <h1>CoolWizardDisplayName99</h1>
                         <p class="toolbutton"><a href='profiledit.html'>Edit</a></p>
                         <p class="toolbutton"><a href='modpage.html'>Moderator Tools</a></p>
+                        <p class ="toolbutton"><a href="sendmessage.html">Send a Message</a></p>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut ex consequat, tristique nibh et, 
                         bibendum nisl. Phasellus eleifend est quis dapibus viverra. Mauris aliquet semper rutrum. Sed vitae diam 

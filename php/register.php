@@ -9,7 +9,6 @@ require_once 'connectDB.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $alreadyexists = false;
-    //echo "<p>Succesfully connected to database!</p>";
     $displayname = mysqli_real_escape_string($connection,$_POST['displayname']);
     $username = mysqli_real_escape_string($connection,$_POST['username']);
     $pword = mysqli_real_escape_string($connection,$_POST['password']);
@@ -24,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 
     if($alreadyexists) {
-        echo "<p>User already exists with this name and/or email</p>";
-        echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'> Return to user entry</a>";
+        header("Location:/themancerzone/signuppage.php?failed=true&failtext=Sorry, an account with this name already exists, please choose a different one!");
     }
     else {
         $sql = "START TRANSACTION";
@@ -39,20 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $sql = "INSERT INTO users (`displayname`,`username`, `password`, `pfpid`, `privileges`) VALUES ('$displayname','$username','$pwordhash','$pfpid',0)";
         mysqli_query($connection, $sql);
         $sql = "COMMIT";
-        mysqli_query($connection, $sql);
-        /*  $sql = "SELECT `image`,`type` FROM pfp WHERE pfpid = '$pfpid'";
-        $result = mysqli_query($connection, $sql);
-        $row = mysqli_fetch_assoc($result);
-        ob_end_clean();
-        header("Content-type: " . $row['type']);
-        $di = base64_decode($row['image']);
-        echo($di);
-        */
-        echo "<img src='image.php?pfpid=".$pfpid."'/>";
+        if(mysqli_query($connection, $sql)) {
+            echo "<img src='image.php?pfpid=".$pfpid."'/>";
+            session_start();
+            if (!isset($_SESSION['username'])) {
+                $_SESSION['username'] = $username;
+            }
+        }
+        header("Location:/themancerzone/mainpage.php");
     }
 }
 else {
-    //echo 'ERROR! Bad Request Method Detected';
+    header("Location:/themancerzone/signuppage.php?failed=true&failtext=Incorrect Request Method, please contact website owner to report errror");
 }
     mysqli_close($connection);
 

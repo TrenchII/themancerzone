@@ -60,6 +60,13 @@ section {
     padding-right:1em;
     cursor:pointer;
 }
+.usersign {
+    color: #FAF3E0;
+    font-weight: bold;
+    height:100%;
+    width:10%;
+    cursor:pointer;
+}
 .sidebar-btn {
     background-color: #1E2140;
     border: none;
@@ -224,7 +231,7 @@ section {
     align-items: center;
   }
   .pImage {
-    height:40%;
+    height:auto;
     width:40%;
   }
   .textpanel > p, .nameheader > h1,.echit > p {
@@ -468,4 +475,15 @@ a:hover {
 }
 .chit-btn>label {
     position:absolute;
+}
+.onetoone {
+    aspect-ratio: 1/1;
+    width: 100%;
+    object-fit: cover;
+    border-radius:20px;
+}
+.onetoonediv {
+    width:30%;
+    aspect-ratio: 1/1;
+    
 }

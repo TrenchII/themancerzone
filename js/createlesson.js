@@ -49,7 +49,7 @@ function submitHandler(e) {
             alterText(el, "Incorrect time format! Should be DD/MM/YY");
             validSubmission = false;
         }
-        else {
+        else if (el.name == "date") {
             date = new Date(el.value);
             if(date < Date.now()) {
                 removeText(el);

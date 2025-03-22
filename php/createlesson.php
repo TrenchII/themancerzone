@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $charArray = str_split($key);
             switch ($charArray[0]) {
                 case 'k':
-                    $keywords = $keywords . $key . ",";
+                    $keywords = $keywords . preg_replace('/^./', '', $key) . ", ";
                     break;
                 case 's':
-                    $schools =  $schools . $key . ",";
+                    $schools =  $schools .  preg_replace('/^./', '', $key) . ", ";
                     break;
                 default:
                     echo "SHOULD NOT BE SEEING!";
@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
         }
     }
+    $keywords = rtrim($keywords,", ");
+    $schools = rtrim($schools,", ");
     $sql = "START TRANSACTION";
     mysqli_query($connection, $sql);
     $sql = "INSERT INTO pfp (`image`,`type`) VALUES ('$imgdata','$filetype')";
@@ -39,8 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pfpid = mysqli_insert_id($connection);
     $sql = "INSERT INTO lesson (`title`, `description`,`keyword`,`school`,`date`,`pfpid`) VALUES ('$title','$desc','$keywords','$schools','$datetime','$pfpid')";
     mysqli_query($connection, $sql);
+    $lessonid = mysqli_insert_id($connection);
     $sql = "COMMIT";
     mysqli_query($connection, $sql);
+    header ('Location:/themancerzone/lesson.php?lessonid='.$lessonid);
     
 }
 

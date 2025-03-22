@@ -16,7 +16,6 @@
    </head>
     <body>
         <div class = "maincontent">
-
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="profile.html">Profile</a>
@@ -34,37 +33,37 @@
                         <p><a href='signuppage.html'>Signup</a></p>
                     </div>
             </section>
-            <section class="infopanel">
-                <img class="pImage" src="./img/placeholder.jpg" alt="pfp">
-                <div class="textpanel">
-                    <div class="nameheader">
-                        <h1><a href = 'profile.html'>CoolWizardDisplayName99</a></h1>
-                        <p class="toolbutton"><a href='profiledit.html'>Edit</a></p>
-                        <p class="toolbutton"><a href='modpage.html'>Moderator Tools</a></p>
+            <section class = 'filler'></section>
+            <form
+            id="form"
+            method="post"
+            novalidate>
+            <section class="formbox">
+                <h1>Edit Profile</h1>
+                <div class="formboxlabel">
+                    <p class = 'inputlabel'>Display Name</p>
+                    <div style="width:100%">
+                        <input type="text" class="formcontrol" placeholder="Enter your display name" required>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut ex consequat, tristique nibh et, 
-                        bibendum nisl. Phasellus eleifend est quis dapibus viverra. Mauris aliquet semper rutrum. Sed vitae diam 
-                        ac erat convallis sagittis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus 
-                        mus. Sed ut augue vestibulum, pellentesque nunc nec, mattis turpis. Quisque pharetra consectetur augue vel porta. 
-                        In varius nunc quis molestie interdum. </p>
-                    <div class="echit">
-                        <p style="font-weight: bold;">Expertise:</p>
-                        <button class="chit-btn">Magic Type 1</button>
-                        <button class="chit-btn">Magic Type 2</button>
-                        <button class="chit-btn">Magic Type 3</button>
-                        <button class="chit-btn">Magic Type 4</button>
-                        <button class="chit-btn">Magic Type 5</button>
+                    <p class = 'inputlabel'>Username</p>
+                    <div style="width:100%">
+                        <input type="text" class="formcontrol" placeholder="Enter your username" required>
                     </div>
+                    <p class = 'inputlabel'>Password</p>
+                    <div style="width:100%">
+                        <input type="text" class="formcontrol" placeholder="Enter your password" required>
+                    </div>
+                    <p class = 'inputlabel'>Password</p>
+                    <div style="width:100%">
+                        <input type="text" class="formcontrol" placeholder="Re-enter your password" required>
+                    </div>
+                    <div id="filesubmit">
+                        <p class = 'inputlabel'>Profile Picture</p>
+                        <input type="file" id="img" name="img" accept="image/*" required>
+                    </div>               
                 </div>
-            </section>
-            <section class="lessoninfo">
-                <p><span style="font-weight: bold;">Instructor:</span> CoolWizardDisplayName99</p>
-                <p><span style="font-weight: bold;">School:</span> Best Magic School</p>
-                <p><span style="font-weight: bold;">Date:</span> February 12th, 2025, 6pm PST</p>
-                <p><span style="font-weight: bold;">Communication:</span> Zoom</p>
-            </section>
-            <section>
-                <button class="actionbutton" onclick="location.href='mainpage.html'">Enroll</button>
+                <h2 class="toolbutton submit"><a href='profile.html'>Submit</a></h2>
+            </form>
             </section>
         </main>
     </div>

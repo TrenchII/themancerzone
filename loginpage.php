@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./css/main.css" />
    </head>
     <body>
+        <?php 
+        session_start();
+    session_unset();
+    session_destroy();?>
         <div class = "maincontent">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -19,12 +23,12 @@
           </div>
         <main id = "main">
             <section class="main-heading">
-                <button class="sidebar-btn" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-                <h1 class="header-text"><a href='mainpage.html'>The 'Mancer Zone</a></h1>
+                <button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>
+                <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
                 <div class="logsign">
-                    <p><a href='loginpage.html'>Login</a></p>
-                    <p>|</p>
-                    <p><a href='signuppage.html'>Signup</a></p>
+                    <p><a href='loginpage.html'></a></p>
+                    <p></p>
+                    <p><a href='signuppage.php'>Signup</a></p>
                 </div>
             </section>
             <section class = 'filler'></section>
@@ -45,6 +49,11 @@
                         <input type="password" class="formcontrol" name="password" placeholder="Enter your Password" required>
                     </div>                  
                 </div>
+                <?php 
+                if(isset($_GET['failed'])) {
+                    echo "<p style='color:red; font-weight:bold; text-align:center;'>".$_GET['failtext']."</p>";
+                }?>
+
                 <input type="submit" class="toolbutton submit" value="Submit">
             </form>
             </section>
