@@ -23,9 +23,9 @@ function removeText(divElement) {
 }
 
 function submitHandler(e) {
-
     let validSubmission = true;
-
+    let date;
+    let time;
     // Validate if required fields are filled in
     formRequiredElements.forEach(el => {
         if (el.value.length == 0) {
@@ -43,22 +43,28 @@ function submitHandler(e) {
             alterText(el, "Incorrect date format! Should be DD/MM/YY");
             validSubmission = false;
         }
-        else if(el.name=="time" && !(timeregex.test(el.value))) {
+        else if (el.name == "date") {
+            date = el;
+        }
+        if(el.name=="time" && !(timeregex.test(el.value))) {
             removeText(el);
             // do something
             alterText(el, "Incorrect time format! Should be DD/MM/YY");
             validSubmission = false;
         }
-        else if (el.name == "date") {
-            date = new Date(el.value);
-            if(date < Date.now()) {
-                removeText(el);
-                // do something
-                alterText(el, "Scheduled before now, please input a future date");
-                validSubmission = false;
-            }
+        else if(el.name=="time") {
+            time = el;
         }
     })
+    datetime = new Date(date.value + " " + time.value +":00");
+    if(datetime < Date.now()){
+        removeText(date);
+        removeText(time);
+        // do something
+        alterText(date, "Date in the past! Please choose a future date!");
+        alterText(time, "Date in the past! Please choose a future date!");
+        validSubmission = false;
+    }
     if (!validSubmission) {
         e.preventDefault();
     }

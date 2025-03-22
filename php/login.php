@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         if($row['password'] == md5($pword)) {
             session_start();
             if (!isset($_SESSION['username'])) {
-                $_SESSION['username'] = $username;
+                $_SESSION['username'] = $pulledUsername;
             } 
             header('Location:/themancerzone/mainpage.php');
         }

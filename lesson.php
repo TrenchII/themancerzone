@@ -26,19 +26,21 @@
 <body>
     <?php session_start();
     require_once 'php/connectDB.php';
-    if($_SERVER['REQUEST_METHOD'] == 'GET') {
-        if(isset($_GET['lessonid'])) {
+    if(isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if (isset($_GET['lessonid'])) {
             $lessonid = $_GET['lessonid'];
             $sql = "SELECT COUNT(lessonid) FROM lesson WHERE lessonid = '$lessonid'";
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
-            if($row['COUNT(lessonid)'] == 0) {
+            if ($row['COUNT(lessonid)'] == 0) {
                 header("Location:/themancerzone/mainpage.php");
             }
             $sql = "SELECT `title`, `description`, `keyword`, `school`, `date`, `pfpid` FROM lesson WHERE lessonid = '$lessonid'";
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
-
             $title = $row["title"];
             $description = $row["description"];
             $keywords = $row["keyword"];
@@ -56,23 +58,20 @@
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
             $displayname = $row['displayname'];
-        }
-        else {
+        } else {
             header("Location:/themancerzone/mainpage.php");
-            }
-    }
-    else {
+        }
+    } else {
         header("Location:/themancerzone/mainpage.php");
-        }?>
+    } ?>
     <div class="maincontent">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="profile.html">Profile</a>
+            <a href="profile.php?username=<?php echo $username?>">Profile</a>
             <a href="lessons.html">Lessons</a>
             <a href="inbox.html">Inbox</a>
             <?php
-            if (isset($_SESSION['username'])) {
-                $username = $_SESSION['username'];
+            if (isset($username)) {
                 $sql = "SELECT privileges FROM users WHERE username = '$username'";
                 $result = mysqli_query($connection, $sql);
                 $row = mysqli_fetch_assoc($result);
@@ -86,7 +85,7 @@
         <main id="main">
             <section class="main-heading">
                 <?php
-                if (isset($_SESSION['username'])) {
+                if (isset($username)) {
                     echo "<button class='sidebar-btn' onclick='openNav()'><i class='fa-solid fa-bars'></i></button>";
                 } else {
                     echo "<button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>";
@@ -94,13 +93,12 @@
                 ?>
                 <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
                 <?php
-                if (isset($_SESSION['username'])) {
+                if (isset($username)) {
                     echo ("       
                 <div class='logsign'>
                     <p><a href ='profile.php'></a></p>
                     <p></p>
-                    <p><a href ='profile.php'>Hello, " . $_SESSION['username'] . "</a></p>
-                </div>");
+                    <p><a href ='profile.php?username=$username'>Hello, " . $username . "</a></p></div>");
                 } else {
                     echo ("       
                 <div class='logsign'>
@@ -113,64 +111,71 @@
             </section>
             <section class="infopanel">
                 <div class="onetoonediv">
-                <img class="onetoone" <?php echo "src='/themancerzone/php/image.php?pfpid=".$pfpid."'"?> alt="pfp">
+                    <img class="onetoone" <?php echo "src='/themancerzone/php/image.php?pfpid=" . $pfpid . "'"; ?>
+                        alt="pfp">
                 </div>
-                <div class="textpanel">
-                    <div class="nameheader">
-                        <h1><?php echo "$title"?></h1>
+                <div class="textpanel">                
                         <?php
-                        if(isset($username)) {
-                            if($username == $lessonusername) {
-                                echo "<p class='toolbutton'><a href='profiledit.php?username=".$username.">Edit</a></p>";
+                        echo "<div class='nameheader'><h1>$title</h1>";
+                        if (isset($username)) {
+                            if ($username == $lessonusername) {
+                                echo "<p class='toolbutton'><a href='profiledit.php?username=" . $username . "'>Edit</a></p>";
+                                echo "<p class = 'toolbutton' style='color:red'><a href='php/delete.php?lessonid=".$lessonid."'>Delete</a></p>";
                             }
-
+                            if ($privileges == 1) {
+                                echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                                echo "<p class = 'toolbutton' style='color:red'><a href='php/delete.php?lessonid=".$lessonid."'>Delete</a></p>";
+                            }
                         }
-                        if($privileges == 1) {
-                            echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
-                        }
-                            ?>
-                        
-                        
-                    </div>
-                    <p><?php echo $description?></p>
+                        echo "</div>";
+                        echo "<p>$description</p>";
+                        ?>
                 </div>
             </section>
             <section class="lessoninfo">
-                <p><span style="font-weight: bold;">Instructor:</span> <?php echo"<a href='profile.php?username=".$lessonusername."'>".$displayname."</a>";?></p>
-                <?php 
-                    if(isset($keywords)) {
-                        echo "<p><span style='font-weight: bold;'>Keywords:</span> ".$keywords."</p>";
-                    } 
-                    if(isset($school)) {
-                        echo "<p><span style='font-weight: bold;'>Schools:</span> ".$school."</p>";
+                <p><span style="font-weight: bold;">Instructor:</span>
+                    <?php echo "<a href='profile.php?username=" . $lessonusername . "'>" . $displayname . "</a>"; ?></p>
+                <?php
+                if (isset($keywords)) {
+                    if(strlen($keywords) > 0) {
+                        echo "<p><span style='font-weight: bold;'>Keywords:</span> " . $keywords . "</p>";
+                    }else {
+                        echo "<p><span style='font-weight: bold;'>Keywords:</span> None</p>";
                     }
-                    $formattedDate = date("F jS, Y", strtotime($date));
-                    echo "<p><span style='font-weight: bold;'>Date:</span> ".$formattedDate."</p>"
-                ?>
-            </section>
-            <section>
-            <?php
-                if(isset($username)) {
-                    $sql = "SELECT lessonid FROM createdlessons WHERE username = '$username' AND lessonid='$lessonid'";
-                    $result = mysqli_query($connection,$sql);
-                    if(mysqli_num_rows($result)==0) {
-                        echo "<form method='GET'";
-                        echo"action='php/enroll.php?username=$username&lessonid=$lessonid'";
-                        echo"novalidate>";
-                        echo"<input type='submit' class='actionbutton submit'  value='Enroll'></form>";
-                    }
-                }
-                else {
-                    echo "<form method='GET'";
-                    echo"action='loginpage.php'";
-                    echo"novalidate>";
-                    echo"<input type='submit' class='actionbutton submit'  value='Enroll'></form>";
                     
                 }
-            ?>
-            
+                if (isset($school)) {
+                    if(strlen($school) > 0) {
+                        echo "<p><span style='font-weight: bold;'>Schools:</span> " . $school . "</p>";
+                    }
+                    else {
+                        echo "<p><span style='font-weight: bold;'>Schools:</span> None</p>";
+                    }
+                }
+                $formattedDate = date("F jS, Y", strtotime($date));
+                echo "<p><span style='font-weight: bold;'>Date:</span> " . $formattedDate . "</p>"; ?>
+            </section>
+            <section>
+                <?php
+                echo "<form";
+                if (isset($username)) {
+                    $sql = "SELECT lessonid FROM createdlessons WHERE username = '$username' AND lessonid='$lessonid'";
+                    $result = mysqli_query($connection, $sql);
+                    $sql = "SELECT lessonid FROM enrolledlessons WHERE username = '$username' AND lessonid='$lessonid'";
+                    $result1 = mysqli_query($connection, $sql);
+                    if (mysqli_num_rows($result) == 0 && mysqli_num_rows($result1) == 0) {
+                        echo " action='php/enroll.php'";
+                        echo " method='get' novalidate>";
+                        echo "<input type='submit' class='actionbutton submit'  value='Enroll'>";
+                    }
+                } else {
+                    echo " action='loginpage.php'";
+                    echo "method='get' novalidate>";
+                    echo "<input type='submit' class='actionbutton submit'  value='Enroll'>";
 
-                
+                }
+                echo "</form>";
+                ?>
             </section>
         </main>
     </div>

@@ -6,8 +6,10 @@ html,body {
     height:100%;
 }
 .maincontent {
-    min-height: calc(100vh - 3em);
     padding-bottom: 3em;
+    min-height:100%;
+    margin-bottom:-3em;
+    padding-bottom:6em;
 }
 main {
     display:flex;
@@ -116,12 +118,10 @@ section {
     align-items: center;
     gap:3em;
     text-align:center;
-    height:60em;
 }
 .carousel {
     display:flex;
     flex-flow:column nowrap;
-    height:40%;
     width:90%;
     color: #FAF3E0;
     background-color: #1E2140;
@@ -137,7 +137,7 @@ section {
     z-index:0;
 }
 
-.main-gallery,.carousel-inner,.carousel-item,.multislide,.main-gallery-small {
+.carousel-inner,.carousel-item,.multislide {
     height:100%;
     width:100%;
 }
@@ -146,14 +146,6 @@ section {
     flex-flow:row nowrap;
     justify-content: space-evenly;
     padding:3em;
-}
-.cImage {
-    height:90%;
-    width:90%;
-}
-.cImage:hover {
-    cursor: pointer;
-    filter:brightness(75%);
 }
 .sidenav {
     height: 100%;
@@ -196,6 +188,7 @@ section {
     background-color:#1E2140;
     height:3em;
     color: #FAF3E0;
+    position: relative;
   }
   .footer > h2 {
     color: #FAF3E0;
@@ -268,15 +261,6 @@ section {
     flex-flow:column nowrap;
     align-items: center;
     text-align:center;
-    height:27em;
-}
-.main-gallery-small > .carousel {
-    display:flex;
-    flex-flow:column nowrap;
-    height:100%;
-    width:90%;
-    color: #FAF3E0;
-    background-color: #1E2140;
 }
 .lessoninfo {
     text-align:left;
@@ -305,7 +289,6 @@ section {
     width:90%;
 }
 .landingtitle {
-    height:calc(100vh - 6em);
     text-align: center;
     padding-top:15%;
 }
@@ -478,12 +461,20 @@ a:hover {
 }
 .onetoone {
     aspect-ratio: 1/1;
-    width: 100%;
+    width: 40em;
     object-fit: cover;
     border-radius:20px;
 }
-.onetoonediv {
-    width:30%;
+.cImage {
     aspect-ratio: 1/1;
-    
+    width: 300px;
+    object-fit: cover;
+    border-radius:20px;
+}
+.cImage:hover {
+    cursor: pointer;
+    filter:brightness(75%);
+}
+.main-gallery {
+    position: relative;
 }

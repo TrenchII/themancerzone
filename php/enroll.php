@@ -5,11 +5,11 @@ if(isset($_GET['username']) && isset($_GET['lessonid'])) {
     $lessonid = $_GET['lessonid'];
     $sql = "START TRANSACTION";
     mysqli_query($connection, $sql);
-    $sql = "INSERT INTO createdlessons (`username`, `lessonid`) VALUES ('$username','$lessonid')";
+    $sql = "INSERT INTO enrolledlessons (`username`, `lessonid`) VALUES ('$username','$lessonid')";
     mysqli_query($connection,$sql);
     $sql = "COMMIT";
     if(mysqli_query($connection,$sql)) {
-        header("Location:/themancerzone/lesson.php?lessonid='$lessonid");
+        header("Location:/themancerzone/lesson.php?lessonid=$lessonid");
     }
     else {
         header('Location:/themancerzone/mainpage.php');

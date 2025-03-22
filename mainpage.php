@@ -19,12 +19,12 @@
     <div class = "maincontent">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="profile.php">Profile</a>
-        <a href="lessons.html">Lessons</a>
-        <a href="inbox.html">Inbox</a>
         <?php
         if(isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
+            echo "<a href='profile.php?username=$username'?>Profile</a>";
+            echo "<a href='lessons.html'>Lessons</a>";
+            echo "<a href='inbox.html'>Inbox</a>";
             $sql = "SELECT privileges FROM users WHERE username = '$username'";
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
@@ -52,9 +52,9 @@
             if(isset($_SESSION['username'])) {
                 echo("       
                 <div class='logsign'>
-                    <p><a href ='profile.php'></a></p>
+                    <p><a href ='profile.php?username=$username'></a></p>
                     <p></p>
-                    <p><a href ='profile.php'>Hello, ".$_SESSION['username']."</a></p>
+                    <p><a href ='profile.php?username=$username'>Hello, ".$_SESSION['username']."</a></p>
                 </div>");
             }
             else {
@@ -153,7 +153,7 @@
                 $creatorspfpID[] = $creatorspfpID[$i];
 
             }
-            if(count($lessonsPopularLessonID) > count($creatorsuserName)) {
+            if(count($lessonsPopularLessonID) < count($creatorsuserName)) {
                 $length = count($lessonsPopularLessonID);
             }
             else {
