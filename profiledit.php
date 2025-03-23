@@ -15,38 +15,72 @@
     <script src="./js/signup.js" defer></script>
    </head>
     <body>
-    <?php 
-        session_start();
-        session_unset();
-        session_destroy();?>
+    <?php require_once("php/sessionstart.php");
+    if (!isset($_SESSION['username'])) {
+        header('location:/themancerzone/mainpage.php');
+    }
+    ?>
+
+
         <div class = "maincontent">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="profile.php">Profile</a>
-                <a href="lessons.html">Lessons</a>
-                <a href="inbox.html">Inbox</a>
-                <a href="modpage.html">Moderator Tools</a>
+                <?php
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            echo "<a href='profile.php?username=$username'?>Profile</a>";
+            echo "<a href='lessons.html'>Lessons</a>";
+            echo "<a href='inbox.html'>Inbox</a>";
+            $sql = "SELECT privileges FROM users WHERE username = '$username'";
+            $result = mysqli_query($connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+            if ($row['privileges'] == 1) {
+                echo "<a href='modpage.html'>Moderator Tools</a>";
+            }
+            echo "<a href='php/logout.php'>Logout</a>";
+        }
+        ?>
               </div>
             <main id = "main">
                 <section class="main-heading">
-                    <button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>
-                    <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
-                    <div class="logsign">
-                        <p><a href='loginpage.php'></a></p>
-                        <p></p>
-                        <p><a href='loginpage.php'>Login</a></p>
-                    </div>
+                <?php
+            if(isset($_SESSION['username'])) {
+                echo"<button class='sidebar-btn' onclick='openNav()'><i class='fa-solid fa-bars'></i></button>";
+            }
+            else {
+                echo"<button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>";
+            }
+            ?>
+            <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
+            <?php
+            if(isset($_SESSION['username'])) {
+                echo("       
+                <div class='logsign'>
+                    <p><a href ='profile.php?username=$username'></a></p>
+                    <p></p>
+                    <p><a href ='profile.php?username=$username'>Hello, ".$_SESSION['username']."</a></p>
+                </div>");
+            }
+            else {
+                echo("       
+                <div class='logsign'>
+                    <p><a href='loginpage.php'>Login</a></p>
+                    <p>|</p>
+                    <p><a href='signuppage.php'>Signup</a></p>
+                </div>");
+            }
+            ?>
                 </section>
             </section>
             <section class = 'filler'></section>
             <form
             id="form"
-            action="php/register.php"
+            action="php/editprofile.php"
             method="post"
             enctype="multipart/form-data"
             novalidate>
             <section class="formbox">
-                <h1>Signup</h1>
+                <h1>Edit Profile</h1>
                 <div class="formboxlabel">
                     <p class = 'inputlabel'>Display Name</p>
                     <div style="width:100%">

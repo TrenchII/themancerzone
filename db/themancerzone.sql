@@ -29,19 +29,20 @@ SET time_zone = "+00:00";
 --
 CREATE TABLE `pfp` (
     `pfpid` int NOT NULL AUTO_INCREMENT,
-    `image` LONGBLOB NOT NULL,
-    `type` varchar(255) NOT NULL,
+    `imagename` varchar(255) NOT NULL,
     PRIMARY KEY (pfpid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
   `displayname` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `pfpid` int NOT NULL,
   `privileges` int NOT NULL,
   PRIMARY KEY (username),
   FOREIGN KEY (pfpid) REFERENCES pfp(pfpid)
+  ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -55,7 +56,7 @@ CREATE TABLE `lesson` (
     `date` DATETIME NOT NULL,
     `pfpid` int NOT NULL,
     PRIMARY KEY (lessonid),
-    FOREIGN KEY (pfpid) REFERENCES pfp(pfpid)
+    FOREIGN KEY (pfpid) REFERENCES pfp(pfpid) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `createdlessons` (
@@ -63,8 +64,8 @@ CREATE TABLE `createdlessons` (
     `lessonid` int NOT NULL,
     `createid` int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (createid),
-    FOREIGN KEY (username) REFERENCES users(username),
-    FOREIGN KEY (lessonid) REFERENCES lesson(lessonid)
+    FOREIGN KEY (username) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (lessonid) REFERENCES lesson(lessonid) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `enrolledlessons` (
@@ -72,8 +73,8 @@ CREATE TABLE `enrolledlessons` (
     `lessonid` int NOT NULL,
     `enrollid` int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (enrollid),
-    FOREIGN KEY (username) REFERENCES users(username),
-    FOREIGN KEY (lessonid) REFERENCES lesson(lessonid)
+    FOREIGN KEY (username) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (lessonid) REFERENCES lesson(lessonid) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `message` (
@@ -83,8 +84,8 @@ CREATE TABLE `message` (
     `message` longtext NOT NULL,
     `date` DATETIME NOT NULL,
     PRIMARY KEY  (messageid),
-    FOREIGN KEY (rusername) REFERENCES users(username),
-    FOREIGN KEY (susername) REFERENCES users(username)
+    FOREIGN KEY (rusername) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (susername) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP USER IF EXISTS 'webuser'@'localhost';

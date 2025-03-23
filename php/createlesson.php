@@ -4,6 +4,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!isset($_SESSION['username'])) {
         header('Location:/themancerzone/mainpage.php');
+        mysqli_close($connection);
         die();
     }
     $username = $_SESSION['username'];
@@ -14,8 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $datetime = $date[2] . "-" . $date[0] . "-" . $date[1] . " " . $time[0] . ":" . $time[1] . ":00";
 
     $img = $_FILES['img']['tmp_name'];
-    $filetype = $_FILES['img']['type'];
-    $imgdata = base64_encode(file_get_contents($img));
+    $filetext = $_FILES['img']['type'];
+    $filetype = explode('/',$filetext)[1];
+    $sql = "SELECT username FROM users WHERE username = '$username'";
+    $uniqueid = '';
+    do {
+        $found = false;
+        $uniqueid = uniqid();
+        $sql = "SELECT COUNT(imagename) from pfp WHERE imagename='$uniqueid'";
+        $result = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_assoc($result);
+        if($row['COUNT(imagename)'] == 0) {
+            $found = true;
+        }
+    }
+    while(!$found);
+    $imagename = $uniqueid . "." . $filetype;
+    $imagedata = file_get_contents($img);
+    file_put_contents("../img/site/".$imagename,$imagedata);
+
 
     $keywords = "";
     $schools = "";
@@ -40,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $schools = rtrim($schools,", ");
     $sql = "START TRANSACTION";
     mysqli_query($connection, $sql);
-    $sql = "INSERT INTO pfp (`image`,`type`) VALUES ('$imgdata','$filetype')";
+    $sql = "INSERT INTO pfp (`imagename`) VALUES ('$imagename')";
     mysqli_query($connection, $sql);
     $pfpid = mysqli_insert_id($connection);
     $sql = "INSERT INTO lesson (`title`, `description`,`keyword`,`school`,`date`,`pfpid`) VALUES ('$title','$desc','$keywords','$schools','$datetime','$pfpid')";
@@ -55,5 +73,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     header ('Location:/themancerzone/lesson.php?lessonid='.$lessonid);
     
 }
-
+mysqli_close($connection);
 ?>

@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once('connectDB.php');
-if(isset($_GET['username']) && isset($_GET['lessonid'])) {
-    $username = $_GET['username'];
+if(isset($_SESSION['username']) && isset($_GET['lessonid'])) {
+    $username = $_SESSION['username'];
     $lessonid = $_GET['lessonid'];
     $sql = "START TRANSACTION";
     mysqli_query($connection, $sql);
@@ -18,4 +19,5 @@ if(isset($_GET['username']) && isset($_GET['lessonid'])) {
 else {
     header('Location:/themancerzone/mainpage.php');
 }
+mysqli_close($connection);
 ?>

@@ -153,7 +153,7 @@
                 $creatorspfpID[] = $creatorspfpID[$i];
 
             }
-            if(count($lessonsPopularLessonID) < count($creatorsuserName)) {
+            if(count($lessonsPopularLessonID) > count($creatorsuserName)) {
                 $length = count($lessonsPopularLessonID);
             }
             else {

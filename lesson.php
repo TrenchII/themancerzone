@@ -24,8 +24,8 @@
 </head>
 
 <body>
-    <?php session_start();
-    require_once 'php/connectDB.php';
+    <?php 
+    require_once("php/sessionstart.php");
     if(isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
     }
@@ -119,12 +119,10 @@
                         echo "<div class='nameheader'><h1>$title</h1>";
                         if (isset($username)) {
                             if ($username == $lessonusername) {
-                                echo "<p class='toolbutton'><a href='profiledit.php?username=" . $username . "'>Edit</a></p>";
-                                echo "<p class = 'toolbutton' style='color:red'><a href='php/delete.php?lessonid=".$lessonid."'>Delete</a></p>";
+                                echo "<p class = 'toolbutton' style='color:red'><a href='php/deletelesson.php?lessonid=".$lessonid."'>Delete</a></p>";
                             }
                             if ($privileges == 1) {
                                 echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
-                                echo "<p class = 'toolbutton' style='color:red'><a href='php/delete.php?lessonid=".$lessonid."'>Delete</a></p>";
                             }
                         }
                         echo "</div>";
@@ -166,6 +164,7 @@
                     if (mysqli_num_rows($result) == 0 && mysqli_num_rows($result1) == 0) {
                         echo " action='php/enroll.php'";
                         echo " method='get' novalidate>";
+                        echo"<input type = 'hidden' name='lessonid' value ='".$lessonid."'>";
                         echo "<input type='submit' class='actionbutton submit'  value='Enroll'>";
                     }
                 } else {

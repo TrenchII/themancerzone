@@ -19,7 +19,7 @@
 
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="profile.html">Profile</a>
+                <a href="profile.php">Profile</a>
                 <a href="lessons.html">Lessons</a>
                 <a href="inbox.html">Inbox</a>
                 <a href="modpage.html">Moderator Tools</a>
@@ -27,7 +27,7 @@
             <main id = "main">
                 <section class="main-heading">
                     <button class="sidebar-btn" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-                    <h1 class="header-text"><a href='mainpage.html'>The 'Mancer Zone</a></h1>
+                    <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
                     <div class="logsign">
                         <p><a href='loginpage.html'>Login</a></p>
                         <p>|</p>

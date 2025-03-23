@@ -107,7 +107,7 @@
                     echo "<div class='nameheader'><h1>$profileusername</h1>";
                     if (isset($username)) {
                         if ($username == $profileusername) {
-                            echo "<p class='toolbutton'><a href='profiledit.php?username=" . $username . "'>Edit</a></p>";
+                            echo "<p class='toolbutton'><a href='profiledit.php'>Edit</a></p>";
                         }
                         if ($privileges == 1) {
                             echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
@@ -236,7 +236,7 @@
                 <?php
                 if(isset($username)) {
                     if($username == $profileusername) {
-                        echo "<form action='createlesson.html'>";
+                        echo "<form action='createlesson.php'>";
                         echo"<button class='actionbutton' onclick='submit'>Create a Lesson</button>";
                         echo "</form>";
                     }
