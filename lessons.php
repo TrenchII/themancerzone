@@ -123,7 +123,7 @@
             echo("
             <section class='infopanel-small'>
             <a href = 'lesson.php?lessonid=".$myLessonsLessonID[$i]."'>
-            <img class='cImage' src='/themancerzone/php/image.php?pfpid=".$myLessonspfpID[$i]."' alt='pfp'>
+            <img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=".$myLessonspfpID[$i]."' alt='pfp'>
             </a>
             <div class='textpanel'>
                 <div class='nameheader'>
@@ -143,7 +143,7 @@
             echo("
             <section class='infopanel-small'>
             <a href = 'lesson.php?lessonid=".$enrolledLessonsLessonID[$i]."'>
-            <img class='cImage' src='/themancerzone/php/image.php?pfpid=".$enrolledLessonspfpID[$i]."' alt='pfp'>
+            <img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=".$enrolledLessonspfpID[$i]."' alt='pfp'>
             </a>
             <div class='textpanel'>
                 <div class='nameheader'>

@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     if(isset($_GET['username'])) {
 
         $username = $_GET['username'];
-        
+
         $sql = "START TRANSACTION";
         mysqli_query($connection,$sql);
 
@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once('logout.php');
             }
         } 
-        header('location:/themancerzone/mainpage.php');
+        header('location:/rdecrewe/themancerzone/mainpage.php');
         mysqli_close($connection);
         die();
     }

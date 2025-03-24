@@ -10,14 +10,14 @@ if(isset($_SESSION['username']) && isset($_GET['lessonid'])) {
     mysqli_query($connection,$sql);
     $sql = "COMMIT";
     if(mysqli_query($connection,$sql)) {
-        header("Location:/themancerzone/lesson.php?lessonid=$lessonid");
+        header("Location:/rdecrewe/themancerzone/lesson.php?lessonid=$lessonid");
     }
     else {
-        header('Location:/themancerzone/mainpage.php');
+        header('Location:/rdecrewe/themancerzone/mainpage.php');
     }
 }
 else {
-    header('Location:/themancerzone/mainpage.php');
+    header('Location:/rdecrewe/themancerzone/mainpage.php');
 }
 mysqli_close($connection);
 ?>

@@ -17,7 +17,7 @@
     <body>
     <?php require_once("php/sessionstart.php");
     if (!isset($_SESSION['username'])) {
-        header('location:/themancerzone/mainpage.php');
+        header('location:/rdecrewe/themancerzone/mainpage.php');
     }
     ?>
 

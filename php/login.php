@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $exists = true;
     }
     if(!$exists) {
-        header("Location:/themancerzone/loginpage.php?failed=true&failtext=Sorry, no account exists with this username, please try again!");
+        header("Location:/rdecrewe/themancerzone/loginpage.php?failed=true&failtext=Sorry, no account exists with this username, please try again!");
     }
     else {
         $sql = "SELECT `password` FROM users WHERE username = '$username'";
@@ -30,15 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             if (!isset($_SESSION['username'])) {
                 $_SESSION['username'] = $pulledUsername;
             } 
-            header('Location:/themancerzone/mainpage.php');
+            header('Location:/rdecrewe/themancerzone/mainpage.php');
         }
         else {
-            header("Location:/themancerzone/loginpage.php?failed=true&failtext=Sorry, this password does not match the username, please try again!");
+            header("Location:/rdecrewe/themancerzone/loginpage.php?failed=true&failtext=Sorry, this password does not match the username, please try again!");
         }
     }
 }
 else {
-    header("Location:/themancerzone/signuppage.php?failed=true&failtext=Incorrect Request Method, please contact website owner to report errror");
+    header("Location:/rdecrewe/themancerzone/signuppage.php?failed=true&failtext=Incorrect Request Method, please contact website owner to report errror");
 }
     mysqli_close($connection);
 

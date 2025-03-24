@@ -15,7 +15,7 @@
             }
         }
         else {
-            header('location:/themancerzone/mainpage.php');
+            header('location:/rdecrewe/themancerzone/mainpage.php');
         }
         $length = count($sUsername);
         for ($i = 0; $i < $length; $i++) {

@@ -36,7 +36,7 @@
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
             if ($row['COUNT(username)'] == 0) {
-                header("Location:/themancerzone/mainpage.php");
+                header("Location:/rdecrewe/themancerzone/mainpage.php");
             }
             $sql = "SELECT `displayname`, `pfpid` FROM users WHERE username = '$profileusername'";
             $result = mysqli_query($connection, $sql);
@@ -47,10 +47,10 @@
             $sql = "SELECT lessonid FROM createdlessons WHERE username = '$profileusername'";
             $result = mysqli_query($connection, $sql);
         } else {
-            header("Location:/themancerzone/mainpage.php");
+            header("Location:/rdecrewe/themancerzone/mainpage.php");
         }
     } else {
-        header("Location:/themancerzone/mainpage.php");
+        header("Location:/rdecrewe/themancerzone/mainpage.php");
     } ?>
     <div class="maincontent">
         <div id="mySidenav" class="sidenav">
@@ -99,7 +99,7 @@
             </section>
             <section class="infopanel">
                 <div class="onetoonediv">
-                    <img class="onetoone" <?php echo "src='/themancerzone/php/image.php?pfpid=" . $pfpid . "'"; ?>
+                    <img class="onetoone" <?php echo "src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $pfpid . "'"; ?>
                         alt="pfp">
                 </div>
                 <div class="textpanel">
@@ -177,19 +177,19 @@
                     <div class='carousel-item active'>
                         <div class='multislide'>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[0] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[0] . "' alt='" . $lessonsPopularTitle[0] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[0] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[0] . "' alt='" . $lessonsPopularTitle[0] . "'></a>
                                 <p>" . $lessonsPopularTitle[0] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[1] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[1] . "' alt='" . $lessonsPopularTitle[1] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[1] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[1] . "' alt='" . $lessonsPopularTitle[1] . "'></a>
                                 <p>" . $lessonsPopularTitle[1] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[2] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[2] . "' alt='" . $lessonsPopularTitle[2] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[2] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[2] . "' alt='" . $lessonsPopularTitle[2] . "'></a>
                                 <p>" . $lessonsPopularTitle[2] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[3] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[3] . "' alt='" . $lessonsPopularTitle[3] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[3] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[3] . "' alt='" . $lessonsPopularTitle[3] . "'></a>
                                 <p>" . $lessonsPopularTitle[3] . "</p>
                             </div>
                         </div>
@@ -197,19 +197,19 @@
                       <div class='carousel-item'>
                         <div class='multislide'>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[4] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[4] . "' alt='" . $lessonsPopularTitle[4] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[4] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[4] . "' alt='" . $lessonsPopularTitle[4] . "'></a>
                                 <p>" . $lessonsPopularTitle[4] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[5] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[5] . "' alt='" . $lessonsPopularTitle[5] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[5] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[5] . "' alt='" . $lessonsPopularTitle[5] . "'></a>
                                 <p>" . $lessonsPopularTitle[5] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[6] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[6] . "' alt='" . $lessonsPopularTitle[6] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[6] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[6] . "' alt='" . $lessonsPopularTitle[6] . "'></a>
                                 <p>" . $lessonsPopularTitle[6] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[7] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[7] . "' alt='" . $lessonsPopularTitle[7] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[7] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[7] . "' alt='" . $lessonsPopularTitle[7] . "'></a>
                                 <p>" . $lessonsPopularTitle[7] . "</p>
                             </div>
                         </div>
@@ -217,19 +217,19 @@
                       <div class='carousel-item'>
                         <div class='multislide'>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[8] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[8] . "' alt='" . $lessonsPopularTitle[8] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[8] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[8] . "' alt='" . $lessonsPopularTitle[8] . "'></a>
                                 <p>" . $lessonsPopularTitle[8] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[9] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[9] . "' alt='" . $lessonsPopularTitle[9] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[9] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[9] . "' alt='" . $lessonsPopularTitle[9] . "'></a>
                                 <p>" . $lessonsPopularTitle[9] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[10] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[10] . "' alt='" . $lessonsPopularTitle[10] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[10] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[10] . "' alt='" . $lessonsPopularTitle[10] . "'></a>
                                 <p>" . $lessonsPopularTitle[10] . "</p>
                             </div>
                             <div class='captionpair'>
-                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[11] . "'><img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[11] . "' alt='" . $lessonsPopularTitle[11] . "'></a>
+                                <a href = 'lesson.php?lessonid=" . $lessonsPopularLessonID[11] . "'><img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $lessonsPopularpfpID[11] . "' alt='" . $lessonsPopularTitle[11] . "'></a>
                                 <p>" . $lessonsPopularTitle[11] . "</p>
                             </div>
                         </div>

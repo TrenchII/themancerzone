@@ -54,9 +54,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         session_unset();
         $_SESSION['username'] = $newusername;
-        header('location:/themancerzone/profile.php?username='.$newusername);
+        header('location:/rdecrewe/themancerzone/profile.php?username='.$newusername);
     }
 }
-header('location:/themancerzone/mainpage.php');
+header('location:/rdecrewe/themancerzone/mainpage.php');
 mysqli_close($connection);
 ?>

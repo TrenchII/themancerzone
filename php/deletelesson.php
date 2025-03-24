@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql = "COMMIT";
         mysqli_query($connection,$sql);
 
-        header('location:/themancerzone/mainpage.php');
+        header('location:/rdecrewe/themancerzone/mainpage.php');
         mysqli_close($connection);
         die();
     }

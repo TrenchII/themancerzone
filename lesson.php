@@ -36,7 +36,7 @@
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
             if ($row['COUNT(lessonid)'] == 0) {
-                header("Location:/themancerzone/mainpage.php");
+                header("Location:/rdecrewe/themancerzone/mainpage.php");
             }
             $sql = "SELECT `title`, `description`, `keyword`, `school`, `date`, `pfpid` FROM lesson WHERE lessonid = '$lessonid'";
             $result = mysqli_query($connection, $sql);
@@ -59,10 +59,10 @@
             $row = mysqli_fetch_assoc($result);
             $displayname = $row['displayname'];
         } else {
-            header("Location:/themancerzone/mainpage.php");
+            header("Location:/rdecrewe/themancerzone/mainpage.php");
         }
     } else {
-        header("Location:/themancerzone/mainpage.php");
+        header("Location:/rdecrewe/themancerzone/mainpage.php");
     } ?>
     <div class="maincontent">
         <div id="mySidenav" class="sidenav">
@@ -111,7 +111,7 @@
             </section>
             <section class="infopanel">
                 <div class="onetoonediv">
-                    <img class="onetoone" <?php echo "src='/themancerzone/php/image.php?pfpid=" . $pfpid . "'"; ?>
+                    <img class="onetoone" <?php echo "src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $pfpid . "'"; ?>
                         alt="pfp">
                 </div>
                 <div class="textpanel">                

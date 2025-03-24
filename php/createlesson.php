@@ -3,7 +3,7 @@ require_once 'connectDB.php';
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!isset($_SESSION['username'])) {
-        header('Location:/themancerzone/mainpage.php');
+        header('Location:/rdecrewe/themancerzone/mainpage.php');
         mysqli_close($connection);
         die();
     }
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     mysqli_query($connection,$sql);
     $sql = "COMMIT";
     mysqli_query($connection, $sql);
-    header ('Location:/themancerzone/lesson.php?lessonid='.$lessonid);
+    header ('Location:/rdecrewe/themancerzone/lesson.php?lessonid='.$lessonid);
     
 }
 mysqli_close($connection);

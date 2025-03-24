@@ -73,7 +73,7 @@
                 ?>
             </section>
             <section class="search">
-                <form id="searchform" action="/themancerzone/search.php" method='POST' novalidate>
+                <form id="searchform" action="/rdecrewe/themancerzone/search.php" method='POST' novalidate>
                     <input type="text" id="searchbox" name="search" placeholder="Start your Wizarding Search Today">
                     <button type="submit" form="searchform" class="searchbtn"><i
                             class="fa-solid fa-arrow-right"></i></button>
@@ -97,7 +97,7 @@
                             echo ("
                             <section class='infopanel-small'>
                             <a href = 'lesson.php?lessonid=" . $lessonID . "'>
-                            <img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $pfpID . "' alt='pfp'>
+                            <img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $pfpID . "' alt='pfp'>
                             </a>
                             <div class='textpanel'>
                                 <div class='nameheader'>
@@ -131,7 +131,7 @@
                             echo ("
                             <section class='infopanel-small'>
                             <a href = 'profile.php?username=" . $profileusername . "'>
-                            <img class='cImage' src='/themancerzone/php/image.php?pfpid=" . $pfpID . "' alt='pfp'>
+                            <img class='cImage' src='/rdecrewe/themancerzone/php/image.php?pfpid=" . $pfpID . "' alt='pfp'>
                             </a>
                             <div class='textpanel'>
                                 <div class='nameheader'>

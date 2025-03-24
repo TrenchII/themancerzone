@@ -1,6 +1,6 @@
 let messages = document.getElementById('messages');
 function refresh() {
-    fetch("/themancerzone/php/inbox.php").then(res => {
+    fetch("/rdecrewe/themancerzone/php/inbox.php").then(res => {
         return res.json();
     }).then(data => {
       messages.innerHTML = '';
@@ -19,7 +19,7 @@ function messageDisplay(data) {
   messageContainer.className = 'messagecontainer';
   
   let sender = document.createElement("p");
-  sender.innerHTML="<a href='/themancerzone/profile.php?username=" + sUserName +"'><span style='font-weight: bold;'>From: </span>" +sUserName+"</a>";
+  sender.innerHTML="<a href='/rdecrewe/themancerzone/profile.php?username=" + sUserName +"'><span style='font-weight: bold;'>From: </span>" +sUserName+"</a>";
 
   let messageText = document.createElement("p");
   messageText.style = "font-style: italic";

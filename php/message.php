@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_query($connection,$sql);
         $sql = "COMMIT";
         mysqli_query($connection,$sql);
-        header ('Location:/themancerzone/profile.php?username='.$rusername);
+        header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
         die();
     }
 }
-header ('Location:/themancerzone/mainpage.php');
+header ('Location:/rdecrewe/themancerzone/mainpage.php');
 ?>

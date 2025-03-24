@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 
     if($alreadyexists) {
-        header("Location:/themancerzone/signuppage.php?failed=true&failtext=Sorry, an account with this name already exists, please choose a different one!");
+        header("Location:/rdecrewe/themancerzone/signuppage.php?failed=true&failtext=Sorry, an account with this name already exists, please choose a different one!");
     }
     else {
         do {
@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             }
         }
 
-        header("Location:/themancerzone/mainpage.php");
+        header("Location:/rdecrewe/themancerzone/mainpage.php");
     }
 }
 else {
-    header("Location:/themancerzone/signuppage.php?failed=true&failtext=Incorrect Request Method, please contact website owner to report errror");
+    header("Location:/rdecrewe/themancerzone/signuppage.php?failed=true&failtext=Incorrect Request Method, please contact website owner to report errror");
 }
 
     mysqli_close($connection);
