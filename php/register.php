@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $imagedata = file_get_contents($img);
         echo ($imagename);
         echo (__DIR__."../img/site/".$imagename);
-        file_put_contents(realpath(__DIR__."../img/site/".$imagename),$imagedata);
+        file_put_contents(__DIR__."../img/site/".$imagename,$imagedata);
 
 
         $sql = "START TRANSACTION";
