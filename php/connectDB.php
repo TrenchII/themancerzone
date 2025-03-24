@@ -4,7 +4,7 @@
 
 <?php
 $host = "localhost";
-$database = "themancerzone";
+$database = "rdecrewe";
 $user = "rdecrewe";
 $password = "Syndrome1234567!";
 
