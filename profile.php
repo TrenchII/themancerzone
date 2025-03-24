@@ -56,8 +56,8 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="profile.php?username=<?php echo $username ?>">Profile</a>
-            <a href="lessons.html">Lessons</a>
-            <a href="inbox.html">Inbox</a>
+            <a href="lessons.php">Lessons</a>
+            <a href="inbox.php">Inbox</a>
             <?php
             if (isset($username)) {
                 $sql = "SELECT privileges FROM users WHERE username = '$username'";
@@ -104,14 +104,27 @@
                 </div>
                 <div class="textpanel">
                     <?php
-                    echo "<div class='nameheader'><h1>$profileusername</h1>";
+                    echo "<div class='nameheader'><h1>$displayname</h1>";
+                    $messageRoute = "'sendmessage.php?rusername=$profileusername'";
                     if (isset($username)) {
                         if ($username == $profileusername) {
                             echo "<p class='toolbutton'><a href='profiledit.php'>Edit</a></p>";
+                            echo "<p class = 'toolbutton' style='color:red'><a href='php/deleteuser.php?username=".$profileusername."'>Delete User</a></p>";
                         }
-                        if ($privileges == 1) {
+                        else {
+                            echo "<p class = 'toolbutton'><a href=$messageRoute>Message ".$displayname."</a></p>";
+                        }
+                        if ($privileges == 1 && $username == $profileusername) {
                             echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
                         }
+                        else if($privileges == 1) {
+                            echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                            echo "<p class = 'toolbutton' style='color:red'><a href='php/deleteuser.php?username=".$profileusername."'>Delete User</a></p>";
+                        }
+                        
+                    }
+                    else {
+                        echo "<p class = 'toolbutton'><a href=$messageRoute>Message ".$displayname."</a></p>";
                     }
                     echo "</div>";
                     ?>

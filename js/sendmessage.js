@@ -1,5 +1,6 @@
 let form = document.getElementById("form");
 let formRequiredElements = document.querySelectorAll('input[required]')
+let passwords = Array.from(document.querySelectorAll('input[type="password"]'));
 let submit = document.querySelector(".submit");
 const resetInput = document.querySelector(".reset");
 
@@ -23,33 +24,19 @@ function removeText(divElement) {
 }
 
 function submitHandler(e) {
+
     let validSubmission = true;
-    let date;
-    let time;
+
     // Validate if required fields are filled in
     formRequiredElements.forEach(el => {
-        if (el.value.length == 0 && el.name != "img") {
+        if (el.value.length == 0) {
             removeText(el);
             // do something
             alterText(el, "This field is required!");
             validSubmission = false;
         }
-        else if (el.name == "img" && el.value.length == 0 ) {
-            removeText(el);
-            // do something
-            alterText(el, "");
-            validSubmission = false;
-        }
-        else if(el.name=='datetime') {
-            if(!(el.checkValidity())) {
-                removeText(el);
-            // do something
-            alterText(el, "Incorrect Date! Please choose a date in the future!");
-            validSubmission = false;
-            }
-        }
     })
-    if(!validSubmission) {
+    if (!validSubmission) {
         e.preventDefault();
     }
 }

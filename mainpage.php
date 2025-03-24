@@ -23,8 +23,8 @@
         if(isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
             echo "<a href='profile.php?username=$username'?>Profile</a>";
-            echo "<a href='lessons.html'>Lessons</a>";
-            echo "<a href='inbox.html'>Inbox</a>";
+            echo "<a href='lessons.php'>Lessons</a>";
+            echo "<a href='inbox.php'>Inbox</a>";
             $sql = "SELECT privileges FROM users WHERE username = '$username'";
             $result = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($result);
@@ -68,8 +68,14 @@
             ?>
         </section>
         <section class = "search">
-            <input type="text" id = "searchbox" placeholder="Start your Wizarding Search Today">
-            <button class="searchbtn" onclick="location.href='search.html'"><i class="fa-solid fa-arrow-right"></i></button>
+            <form 
+            id = "searchform"
+            action="/themancerzone/search.php"
+            method='POST' 
+            novalidate>
+            <input type="text" id = "searchbox" name="search" placeholder="Start your Wizarding Search Today">
+            <button type="submit" form="searchform" class="searchbtn"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
         </section>
         <?php
         //Variable Declaration for the 3 slideshows
@@ -137,7 +143,7 @@
         }
 
         //When less than 12 records returned, duplicates given records until we have 12 (enough to fill slideshow)
-        $length = count($lessonsPopularLessonID);
+        $length = count($creatorsuserName);
         while($length < 12) {
             for ($i = 0 ; $i < $length; $i++) {
                 $lessonsPopularLessonID[] = $lessonsPopularLessonID[$i];
@@ -153,15 +159,9 @@
                 $creatorspfpID[] = $creatorspfpID[$i];
 
             }
-            if(count($lessonsPopularLessonID) > count($creatorsuserName)) {
-                $length = count($lessonsPopularLessonID);
-            }
-            else {
                 $length = count($creatorsuserName);
-            }
             
         };
-
         //Due to overshoot when doubling, slice back down to 12 
         $lessonsPopularLessonID = array_slice($lessonsPopularLessonID,0,12);
         $lessonsPopularpfpID = array_slice($lessonsPopularpfpID,0,12);

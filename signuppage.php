@@ -23,8 +23,8 @@
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="profile.php">Profile</a>
-                <a href="lessons.html">Lessons</a>
-                <a href="inbox.html">Inbox</a>
+                <a href="lessons.php">Lessons</a>
+                <a href="inbox.php">Inbox</a>
                 <a href="modpage.html">Moderator Tools</a>
               </div>
             <main id = "main">
@@ -58,7 +58,7 @@
                     </div>
                     <p class = 'inputlabel'>Email</p>
                     <div style="width:100%">
-                        <input type="email" class="formcontrol" name="email" placeholder="Enter your email" required>
+                        <input type="text" class="formcontrol" name="email" placeholder="Enter your email" required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
                     <div style="width:100%">

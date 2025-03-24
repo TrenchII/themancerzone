@@ -10,10 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_SESSION['username'];
     $title = mysqli_real_escape_string($connection,$_POST['title']);
     $desc = mysqli_real_escape_string($connection,$_POST['desc']);
-    $date = explode("/",mysqli_real_escape_string($connection,$_POST['date']));
-    $time = explode (":",mysqli_real_escape_string($connection,$_POST['time']));
-    $datetime = $date[2] . "-" . $date[0] . "-" . $date[1] . " " . $time[0] . ":" . $time[1] . ":00";
-
+    $datetime = str_replace("T"," ", mysqli_real_escape_string($connection,$_POST['datetime']));
     $img = $_FILES['img']['tmp_name'];
     $filetext = $_FILES['img']['type'];
     $filetype = explode('/',$filetext)[1];
@@ -39,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $schools = "";
 
     foreach( $_POST as $key => $value) {
-        if (!($key == 'title' || $key == 'desc' || $key == 'date'|| $key == 'time')) {
+        if (!($key == 'title' || $key == 'desc' || $key == 'datetime')) {
             $charArray = str_split($key);
             switch ($charArray[0]) {
                 case 'k':

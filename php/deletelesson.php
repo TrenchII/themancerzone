@@ -11,7 +11,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         $row = mysqli_fetch_assoc($result);
         $pfpid = $row['pfpid'];
-        $sql = "DELETE FROM pfpid WHERE pfpid='$pfpid";
+        $sql = "SELECT imagename FROm pfp WHERE pfpid = '$pfpid'";
+        $result= mysqli_query($connection,$sql);
+        $row = mysqli_fetch_assoc($result);
+
+        unlink("../img/site/".$row['imagename']);
+        $sql = "DELETE FROM pfp WHERE pfpid='$pfpid'";
+        mysqli_query($connection,$sql);
 
         $sql = "DELETE FROM lesson WHERE lessonid='$lessonid'";
         mysqli_query($connection,$sql);

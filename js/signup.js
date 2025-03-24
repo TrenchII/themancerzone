@@ -49,6 +49,13 @@ function submitHandler(e) {
             alterText(el, "This field is required!");
             validSubmission = false;
         }
+        emailregex = /^[^@]+@[^@]+\.[^@]+$/;
+        if(el.name == 'email' && !(el.value.match(emailregex))){
+            removeText(el);
+            // do something
+            alterText(el, "Please input a properly formatted email!");
+            validSubmission = false;
+        }
     })
     if (!validSubmission) {
         e.preventDefault();

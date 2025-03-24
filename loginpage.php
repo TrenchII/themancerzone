@@ -17,8 +17,8 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="profile.php">Profile</a>
-            <a href="lessons.html">Lessons</a>
-            <a href="inbox.html">Inbox</a>
+            <a href="lessons.php">Lessons</a>
+            <a href="inbox.php">Inbox</a>
             <a href="modpage.html">Moderator Tools</a>
           </div>
         <main id = "main">

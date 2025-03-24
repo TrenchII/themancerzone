@@ -85,7 +85,7 @@ CREATE TABLE `message` (
     `date` DATETIME NOT NULL,
     PRIMARY KEY  (messageid),
     FOREIGN KEY (rusername) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (susername) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (susername) REFERENCES users(username) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP USER IF EXISTS 'webuser'@'localhost';

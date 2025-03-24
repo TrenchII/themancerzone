@@ -68,8 +68,8 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="profile.php?username=<?php echo $username?>">Profile</a>
-            <a href="lessons.html">Lessons</a>
-            <a href="inbox.html">Inbox</a>
+            <a href="lessons.php">Lessons</a>
+            <a href="inbox.php">Inbox</a>
             <?php
             if (isset($username)) {
                 $sql = "SELECT privileges FROM users WHERE username = '$username'";
@@ -119,10 +119,14 @@
                         echo "<div class='nameheader'><h1>$title</h1>";
                         if (isset($username)) {
                             if ($username == $lessonusername) {
-                                echo "<p class = 'toolbutton' style='color:red'><a href='php/deletelesson.php?lessonid=".$lessonid."'>Delete</a></p>";
+                                echo "<p class = 'toolbutton' style='color:red'><a href='php/deletelesson.php?lessonid=".$lessonid."'>Delete Lesson</a></p>";
                             }
-                            if ($privileges == 1) {
+                            if ($privileges == 1 && $username == $lessonusername) {
                                 echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                            }
+                            else if ($privileges == 1) {
+                                echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                                echo "<p class = 'toolbutton' style='color:red'><a href='php/deletelesson.php?lessonid=".$lessonid."'>Delete Lesson</a></p>";
                             }
                         }
                         echo "</div>";
@@ -150,7 +154,7 @@
                         echo "<p><span style='font-weight: bold;'>Schools:</span> None</p>";
                     }
                 }
-                $formattedDate = date("F jS, Y", strtotime($date));
+                $formattedDate = date("F jS, Y | g:i A", strtotime($date));
                 echo "<p><span style='font-weight: bold;'>Date:</span> " . $formattedDate . "</p>"; ?>
             </section>
             <section>

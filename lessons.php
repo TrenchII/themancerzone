@@ -15,174 +15,147 @@
     <script src="./js/signup.js" defer></script>
    </head>
     <body>
+        <?php     require_once("php/sessionstart.php"); ?>
         <div class = "maincontent">
-
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="profile.php">Profile</a>
-                <a href="lessons.html">Lessons</a>
-                <a href="inbox.html">Inbox</a>
-                <a href="modpage.html">Moderator Tools</a>
+                <?php
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            echo "<a href='profile.php?username=$username'?>Profile</a>";
+            echo "<a href='lessons.php'>Lessons</a>";
+            echo "<a href='inbox.php'>Inbox</a>";
+            $sql = "SELECT privileges FROM users WHERE username = '$username'";
+            $result = mysqli_query($connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+            if ($row['privileges'] == 1) {
+                echo "<a href='modpage.html'>Moderator Tools</a>";
+            }
+            echo "<a href='php/logout.php'>Logout</a>";
+        }
+        else {
+            header("location:mainpage.php");
+        }
+        ?>
               </div>
             <main id = "main">
                 <section class="main-heading">
-                    <button class="sidebar-btn" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-                    <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
-                    <div class="logsign">
-                        <p><a href='loginpage.html'>Login</a></p>
-                        <p>|</p>
-                        <p><a href='signuppage.html'>Signup</a></p>
-                    </div>
+                <?php
+            if(isset($_SESSION['username'])) {
+                echo"<button class='sidebar-btn' onclick='openNav()'><i class='fa-solid fa-bars'></i></button>";
+            }
+            else {
+                echo"<button class='sidebar-btn' style='opacity:0%; cursor:auto;'><i class='fa-solid fa-bars'></i></button>";
+            }
+            ?>
+            <h1 class="header-text"><a href='mainpage.php'>The 'Mancer Zone</a></h1>
+            <?php
+            if(isset($_SESSION['username'])) {
+                echo("       
+                <div class='logsign'>
+                    <p><a href ='profile.php?username=$username'></a></p>
+                    <p></p>
+                    <p><a href ='profile.php?username=$username'>Hello, ".$_SESSION['username']."</a></p>
+                </div>");
+            }
+            else {
+                echo("       
+                <div class='logsign'>
+                    <p><a href='loginpage.php'>Login</a></p>
+                    <p>|</p>
+                    <p><a href='signuppage.php'>Signup</a></p>
+                </div>");
+            }
+            ?>
             </section>
-            <section class = "main-gallery">
-                <div id="carouselControl1" class="carousel slide" data-interval='0'>
-                    <h1>My Lessons</h1>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s1m"></a>
-                                    <p>Slide 1 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s2m"></a>
-                                    <p>Slide 1 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s3m"></a>
-                                    <p>Slide 1 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s4m"></a>
-                                    <p>Slide 1 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s1m"></a>
-                                    <p>Slide 2 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s2m"></a>
-                                    <p>Slide 2 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s3m"></a>
-                                    <p>Slide 2 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s4m"></a>
-                                    <p>Slide 2 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s1m"></a>
-                                    <p>Slide 3 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s2m"></a>
-                                    <p>Slide 3 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s3m"></a>
-                                    <p>Slide 3 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s4m"></a>
-                                    <p>Slide 3 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselControl1" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselControl1" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-    
-                  <div id="carouselControl2" class="carousel slide" data-interval='0'>
-                    <h1>Enrolled Lessons</h1>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s1m"></a>
-                                    <p>Slide 1 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s2m"></a>
-                                    <p>Slide 1 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s3m"></a>
-                                    <p>Slide 1 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="1s4m"></a>
-                                    <p>Slide 1 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s1m"></a>
-                                    <p>Slide 2 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s2m"></a>
-                                    <p>Slide 2 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s3m"></a>
-                                    <p>Slide 2 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="2s4m"></a>
-                                    <p>Slide 2 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div class="multislide">
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s1m"></a>
-                                    <p>Slide 3 Image 1</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s2m"></a>
-                                    <p>Slide 3 Image 2</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s3m"></a>
-                                    <p>Slide 3 Image 3</p>
-                                </div>
-                                <div class="captionpair">
-                                    <a href = 'lesson.html'><img class="cImage" src="./img/placeholder.jpg" alt="3s4m"></a>
-                                    <p>Slide 3 Image 4</p>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselControl2" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselControl2" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
-                  </section>
+            <?php
+        //Variable Declaration for the 3 slideshows
+        $myLessonsLessonID = [];
+        $myLessonsTitle = [];
+        $myLessonspfpID = [];
+        $myLessonsDesc = [];
+
+        $enrolledLessonsLessonID = [];
+        $enrolledLessonsTitle = [];
+        $enrolledLessonspfpID = [];
+        $enrolledLessonsDesc = [];
+
+
+        //For myLessons, selects lessonid if we are the creator, then saves their title, id, and pfpid into arrays
+        $anyResults = false;
+        $sql = "SELECT lessonid FROM createdlessons where username = '$username'";
+        $result = mysqli_query($connection,$sql);
+        while($row = mysqli_fetch_assoc($result)) {
+            $anyResults = true;
+            $lessonId = $row['lessonid'];
+            $myLessonsLessonID[] = $lessonId;
+            $sql = "SELECT `title`,`pfpid`, `description` FROM lesson where lessonid = '$lessonId'";
+            $lessonRow = mysqli_fetch_assoc(mysqli_query($connection, $sql));
+            $myLessonsTitle[] = $lessonRow['title'];
+            $myLessonspfpID[] = $lessonRow['pfpid'];
+            $myLessonsDesc[] = $lessonRow['description'];
+        }
+        //if no results detected, show error
+
+        //For Enrolled, selects lessonid if we are enrolled, then saves their title, id, and pfpid into arrays
+        $anyResults = false;
+        $sql = "SELECT `lessonid` FROM enrolledlessons WHERE username = '$username'";
+        $result = mysqli_query($connection,$sql);
+        while($row = mysqli_fetch_assoc($result)) {
+            $anyResults = true;
+            $lessonId = $row['lessonid'];
+            $enrolledLessonsLessonID[] = $lessonId;
+            $sql = "SELECT `title`,`pfpid`,`description` FROM lesson where lessonid = '$lessonId'";
+            $lessonRow = mysqli_fetch_assoc(mysqli_query($connection, $sql));
+            $enrolledLessonsTitle[] = $lessonRow['title'];
+            $enrolledLessonspfpID[] = $lessonRow['pfpid'];
+            $enrolledLessonsDesc[] = $lessonRow['description'];
+        }
+        $enrolledLessonsLessonID = array_values(array_diff($enrolledLessonsLessonID,$myLessonsLessonID));
+        $enrolledLessonsTitle = array_values(array_diff($enrolledLessonsTitle,$myLessonsTitle));
+        $enrolledLessonspfpID = array_values(array_diff($enrolledLessonspfpID,$myLessonspfpID));
+        $enrolledLessonsDesc = array_values(array_diff($enrolledLessonsDesc,$myLessonsDesc));
+        //if no results detected, show error
+        echo "<h1 style='color:#FAF3E0'>My Lessons</h1>";
+        $run = false;
+        for($i = 0; $i < count($myLessonsLessonID); $i++) {
+            $run = true;
+            echo("
+            <section class='infopanel-small'>
+            <a href = 'lesson.php?lessonid=".$myLessonsLessonID[$i]."'>
+            <img class='cImage' src='/themancerzone/php/image.php?pfpid=".$myLessonspfpID[$i]."' alt='pfp'>
+            </a>
+            <div class='textpanel'>
+                <div class='nameheader'>
+                    <h1><a href = 'lesson.php?lessonid=".$myLessonsLessonID[$i]."'>$myLessonsTitle[$i]</a></h1>
+                </div>
+                <p>$myLessonsDesc[$i]</p>
+            </div>
+        </section>");
+        }
+        if(!$run){
+            echo"<h2 style='color:#FAF3E0'>No currently created lessons, go to your profile and created some!</h2>";
+        }
+        $run = false;
+        echo "<h1 style='color:#FAF3E0'>Enrolled Lessons</h1>";
+        for($i = 0; $i < count($enrolledLessonsLessonID); $i++) {
+            $run = true;
+            echo("
+            <section class='infopanel-small'>
+            <a href = 'lesson.php?lessonid=".$enrolledLessonsLessonID[$i]."'>
+            <img class='cImage' src='/themancerzone/php/image.php?pfpid=".$enrolledLessonspfpID[$i]."' alt='pfp'>
+            </a>
+            <div class='textpanel'>
+                <div class='nameheader'>
+                    <h1><a href = 'lesson.php?lessonid=".$enrolledLessonsLessonID[$i]."'>$enrolledLessonsTitle[$i]</a></h1>
+                </div>
+                <p>$enrolledLessonsDesc[$i]</p>
+            </div>
+        </section>");}
+        if(!$run){
+            echo"<h2 style='color:#FAF3E0'>No currently enrolled lessons, go find one you are interested in!</h2>";
+        }
+        ?>
         </main>
     </div>
     <footer class = "footer">

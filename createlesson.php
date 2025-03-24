@@ -33,8 +33,8 @@
             if (isset($_SESSION['username'])) {
                 $username = $_SESSION['username'];
                 echo "<a href='profile.php?username=$username'?>Profile</a>";
-                echo "<a href='lessons.html'>Lessons</a>";
-                echo "<a href='inbox.html'>Inbox</a>";
+                echo "<a href='lessons.php'>Lessons</a>";
+                echo "<a href='inbox.php'>Inbox</a>";
                 $sql = "SELECT privileges FROM users WHERE username = '$username'";
                 $result = mysqli_query($connection, $sql);
                 $row = mysqli_fetch_assoc($result);
@@ -124,13 +124,9 @@
                             <input type="checkbox" class='hiddencheck' name='sTransmutation' id='Transmutation'>
                             <button class="chitlight chit-btn" id='Transmutation'>Transmutation</button>
                         </div>
-                        <p class='inputlabel'>Date (DD/MM/YYYY)</p>
+                        <p class='inputlabel'>Date</p>
                         <div style="width:100%">
-                            <input type="text" class="formcontrol" name="date" placeholder="DD/MM/YY" required>
-                        </div>
-                        <p class='inputlabel'>Time (HH:MM PST 24 hour)</p>
-                        <div style="width:100%">
-                            <input type="text" class="formcontrol" name="time" placeholder="HH:MM" required>
+                            <input type="datetime-local" class="formcontrol" name="datetime" min="<?php date_default_timezone_set('America/Los_Angeles'); echo date('Y-m-d\TG:i'); ?>" required>
                         </div>
                         <div id="filesubmit">
                             <p class='inputlabel'>Lesson Photo</p>

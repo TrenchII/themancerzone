@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $pfpid = mysqli_insert_id($connection);
         $pwordhash = md5($pword);
         $pfpid = mysqli_insert_id($connection);
-        $sql = "INSERT INTO users (`displayname`,`username`, `password`, `pfpid`, `privileges`) VALUES ('$displayname','$username','$pwordhash','$pfpid',0)";
+        $sql = "INSERT INTO users (`displayname`,`username`,`email`, `password`, `pfpid`, `privileges`) VALUES ('$displayname','$username','$email','$pwordhash','$pfpid',0)";
         mysqli_query($connection, $sql);
         $sql = "COMMIT";
         if(mysqli_query($connection, $sql)) {
