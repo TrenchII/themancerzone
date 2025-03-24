@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         while(!$found);
         $imagename = $uniqueid . "." . $filetype;
         $imagedata = file_get_contents($img);
+        echo ($imagename);
+        echo (realpath("../img/site/".$imagename));
         file_put_contents(realpath("../img/site/".$imagename),$imagedata);
 
 
