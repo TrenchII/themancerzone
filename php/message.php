@@ -2,9 +2,9 @@
 require_once('sessionstart.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_SESSION['username'])) {
-        $susername = $_SESSION['username'];
-        $rusername = $_POST['rusername'];
-        $message = $_POST['message'];
+        $susername = mysqli_real_escape_string($_SESSION['username']);
+        $rusername = mysqli_real_escape_string($_POST['rusername']);
+        $message = mysqli_real_escape_string($_POST['message']);
         date_default_timezone_set('America/Los_Angeles');
         $date = date('Y-m-d\TG:i');
         $sql = "START TRANSACTION";
