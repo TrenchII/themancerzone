@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $result= mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
 
-        unlink(realpath("../img/site/".$row['imagename']));
+        unlink("/home/rdecrewe/public_html/themancerzone/img/site/".$row['imagename']);
         $sql = "DELETE FROM pfp WHERE pfpid='$pfpid'";
         mysqli_query($connection,$sql);
 

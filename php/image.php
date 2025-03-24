@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     ob_end_clean();
     header("Content-type: " . $type);
-    echo file_get_contents(realpath("../img/site/".$imagename));
+    echo file_get_contents("/home/rdecrewe/public_html/themancerzone/img/site/".$imagename);
 }
 else {
     echo "Bad request type, wuh oh!";

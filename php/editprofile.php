@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         while(!$found);
         $imagename = $uniqueid . "." . $filetype;
         $imagedata = file_get_contents($img);
-        file_put_contents(realpath("../img/site/".$imagename),$imagedata);
+        file_put_contents("/home/rdecrewe/public_html/themancerzone/img/site/".$imagename,$imagedata);
 
 
         $sql = "START TRANSACTION";
@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT imagename from pfp where pfpid = '$pfpid'";
         $result = mysqli_query($connection, $sql);
         $oldimagename = mysqli_fetch_assoc($result)['imagename'];
-        unlink(realpath("../img/site/".$oldimagename));
+        unlink("/home/rdecrewe/public_html/themancerzone/img/site/".$oldimagename);
         $sql = "UPDATE pfp SET `imagename` = '$imagename' WHERE pfpid = '$pfpid'";
         mysqli_query($connection, $sql);
 
