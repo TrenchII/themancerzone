@@ -40,9 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         while(!$found);
         $imagename = $uniqueid . "." . $filetype;
         $imagedata = file_get_contents($img);
-        echo ($imagename);
-        echo (__DIR__."../img/site/".$imagename);
-        file_put_contents(__DIR__."../img/site/".$imagename,$imagedata);
+
+        file_put_contents("/home/rdecrewe/public_html/themancerzone/img/site/".$imagename,$imagedata);
 
 
         $sql = "START TRANSACTION";
