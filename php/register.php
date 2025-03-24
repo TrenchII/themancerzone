@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $imagename = $uniqueid . "." . $filetype;
         $imagedata = file_get_contents($img);
         echo ($imagename);
-        echo (realpath("../img/site/".$imagename));
-        file_put_contents(realpath("../img/site/".$imagename),$imagedata);
+        echo (realpath(__DIR__."../img/site/".$imagename));
+        file_put_contents(realpath(__DIR__."../img/site/".$imagename),$imagedata);
 
 
         $sql = "START TRANSACTION";
