@@ -40,6 +40,7 @@
     <main id = "main">
         <section class="main-heading">
             <?php
+            file_put_contents("./test.txt","hi");
             if(isset($_SESSION['username'])) {
                 echo"<button class='sidebar-btn' onclick='openNav()'><i class='fa-solid fa-bars'></i></button>";
             }
