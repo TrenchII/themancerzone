@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         while(!$found);
         $imagename = $uniqueid . "." . $filetype;
         $imagedata = file_get_contents($img);
-        file_put_contents("../img/site/".$imagename,$imagedata);
+        file_put_contents(realpath("../img/site/".$imagename),$imagedata);
 
 
         $sql = "START TRANSACTION";

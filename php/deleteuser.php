@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
             $sql = "SELECT imagename from pfp WHERE pfpid='$lessonpfpid'";
             $row3 = mysqli_fetch_assoc(mysqli_query($connection,$sql));
 
-            unlink("../img/site/".$row3['imagename']);
+            unlink(realpath("../img/site/".$row3['imagename']));
 
             $sql = "DELETE FROM pfp WHERE pfpid='$lessonpfpid'";
             mysqli_query($connection,$sql);
@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql = "SELECT imagename FROm pfp WHERE pfpid = '$pfpid'";
         $result= mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
-        unlink("../img/site/".$row['imagename']);
+        unlink(realpath("../img/site/".$row['imagename']));
 
         $sql = "DELETE FROM pfp WHERE pfpid='$pfpid'";
         mysqli_query($connection,$sql);
