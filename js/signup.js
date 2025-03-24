@@ -73,7 +73,7 @@ function alterText(field, errorText) {
     field.id = "failed";
 }
 
-submit.addEventListener("click", submitHandler)
+submit.addEventListener("click", submitHandler);
 
 function changeHandler(e) {
     removeText(this);
