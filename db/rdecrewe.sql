@@ -40,6 +40,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `pfpid` int NOT NULL,
   `privileges` int NOT NULL,
+  `messagecount` int NOT NULL,
   PRIMARY KEY (username),
   FOREIGN KEY (pfpid) REFERENCES pfp(pfpid)
   ON UPDATE CASCADE ON DELETE CASCADE

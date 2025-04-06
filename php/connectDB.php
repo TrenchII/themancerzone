@@ -7,7 +7,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 $host = "localhost";
-$database = "rdecrewe";
+$database = "themancerzone";
 $user = "rdecrewe";
 $password = "Syndrome1234567!";
 

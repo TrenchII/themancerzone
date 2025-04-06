@@ -1,4 +1,5 @@
 let messages = document.getElementById('messages');
+let onload = true;
 function refresh() {
     fetch("/rdecrewe/themancerzone/php/inbox.php").then(res => {
         return res.json();
