@@ -18,6 +18,8 @@
    </head>
    <body>
     <?php session_start(); require_once 'php/connectDB.php';?>
+    <?
+echo ini_get("post_max_size");?>
     <div class = "maincontent">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
