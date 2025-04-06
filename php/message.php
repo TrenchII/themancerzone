@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT `messagecount` FROM `users` WHERE `username` = '$rusername'";
         $result = mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
-        echo $row['messagecount'];
         while($row) {
+            echo $row['messagecount'];
             $messagecount = $row['messagecount'];
         } 
         $messagecount = $messagecount + 1;
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_query($connection,$sql);
         $sql = "COMMIT";
         mysqli_query($connection,$sql);
-        header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
+        //header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
         die();
     }
 }
