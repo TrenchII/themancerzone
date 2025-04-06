@@ -15,8 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
         while($row) {
-            $messagecount = $row['messagecount'] + 1;
+            $messagecount = $row['messagecount'];
         } 
+        $messagecount = $messagecount + 1;
         $sql = "UPDATE users SET `messagecount` = '$messagecount' WHERE `username` = '$rusername'";
         mysqli_query($connection,$sql);
         $sql = "COMMIT";
