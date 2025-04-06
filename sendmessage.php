@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/sendmessage.js" defer></script>
     <script src="./js/messagecount.js" defer></script>
+    <script src="./js/sparkle_effect.js" defer></script>
 </head>
 
 <body>

@@ -7,6 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/sparkle_effect.js" defer></script>
    </head>
     <body>
         <?php 

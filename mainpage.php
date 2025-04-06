@@ -14,6 +14,7 @@
     <script src="./js/main.js" defer></script>
     <script src="./js/signup.js" defer></script>
     <script src="./js/messagecount.js" defer></script>
+    <script src="./js/sparkle_effect.js" defer></script>
    </head>
    <body>
     <?php session_start(); require_once 'php/connectDB.php';?>

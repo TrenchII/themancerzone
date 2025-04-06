@@ -23,6 +23,7 @@
     <script src="./js/createlesson.js" defer></script>
     <script src="./js/toggle.js" defer></script>
     <script src="./js/messagecount.js" defer></script>
+    <script src="./js/sparkle_effect.js" defer></script>
 </head>
 
 <body>

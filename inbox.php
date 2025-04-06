@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous" defer></script>
     <script src="./js/main.js" defer></script>
     <script src="./js/inbox.js" defer></script>
+    <script src="./js/sparkle_effect.js" defer></script>
    </head>
     <body>
     <?php session_start(); require_once 'php/connectDB.php';?>
