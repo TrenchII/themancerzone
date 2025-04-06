@@ -35,7 +35,7 @@
         }
         ?>
               </div>
-            <main id = "main">
+            <main id = "main" >
                 <section class="main-heading">
                 <?php
             if(isset($_SESSION['username'])) {

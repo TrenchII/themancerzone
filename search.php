@@ -21,10 +21,10 @@
     <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous" defer></script>
     <script src="./js/main.js" defer></script>
     <script src="./js/signup.js" defer></script>
-    <script src="./js/newmessage.js" defer></script>
+    <script src="./js/messagecount.js" defer></script>
 </head>
 
-<body>
+<div>
     <?php require_once("php/sessionstart.php"); ?>
     <div class="maincontent">
         <div id="mySidenav" class="sidenav">
@@ -148,7 +148,7 @@
             }
             ?>
         </main>
-    </div>
+        </div>
     <footer class="footer">
         <h2>Wizard Co.</h2>
     </footer>

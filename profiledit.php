@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/db5bcca7bf.js" crossorigin="anonymous" defer></script>
     <script src="./js/main.js" defer></script>
     <script src="./js/signup.js" defer></script>
-    <script src="./js/newmessage.js" defer></script>
+    <script src="./js/messagecount.js" defer></script>
    </head>
     <body>
     <?php require_once("php/sessionstart.php");
@@ -70,44 +70,52 @@
                     <p><a href='signuppage.php'>Signup</a></p>
                 </div>");
             }
-            ?>
+            $sql = "SELECT `displayname`,`email`,`pfpid` FROM users WHERE username = '$username'";
+            $result = mysqli_query($connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $displayname = $row['displayname'];
+            $email = $row['email'];
+            $pfpid = $row['password'];
+            echo "
                 </section>
             </section>
             <section class = 'filler'></section>
             <form
-            id="form"
-            action="php/editprofile.php"
-            method="post"
-            enctype="multipart/form-data"
+            id='form'
+            action='php/editprofile.php'
+            method='post'
+            enctype='multipart/form-data'
             novalidate>
-            <section class="formbox">
+            <section class='formbox'>
                 <h1>Edit Profile</h1>
-                <div class="formboxlabel">
+                <div class='formboxlabel'>
                     <p class = 'inputlabel'>Display Name</p>
-                    <div style="width:100%">
-                        <input type="text" class="formcontrol" name="displayname" placeholder="Enter your display name" required>
+                    <div style='width:100%'>
+                        <input type='text' class='formcontrol' name='displayname' placeholder='$displayname' required>
                     </div>
                     <p class = 'inputlabel'>Username</p>
-                    <div style="width:100%">
-                        <input type="text" class="formcontrol" name="username" placeholder="Enter your username" required>
+                    <div style='width:100%'>
+                        <input type='text' class='formcontrol' name='username' placeholder='$username' required>
                     </div>
                     <p class = 'inputlabel'>Email</p>
-                    <div style="width:100%">
-                        <input type="email" class="formcontrol" name="email" placeholder="Enter your email" required>
+                    <div style='width:100%'>
+                        <input type='email' class='formcontrol' name='email' placeholder='$email' required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
-                    <div style="width:100%">
-                        <input type="password" class="formcontrol"  name="password" placeholder="Enter your password" required>
+                    <div style='width:100%'>
+                        <input type='password' class='formcontrol'  name='password' placeholder='Enter your password' required>
                     </div>
                     <p class = 'inputlabel'>Re-enter Password</p>
-                    <div style="width:100%">
-                        <input type="password" class="formcontrol" name="confirm_password" placeholder="Re-enter your password" required>
+                    <div style='width:100%'>
+                        <input type='password' class='formcontrol' name='confirm_password' placeholder='Re-enter your password' required>
                     </div>
-                    <div id="filesubmit">
+                    <div id='filesubmit'>
                         <p class = 'inputlabel'>Profile Picture</p>
-                        <input type="file" id = "img" name = "img" accept="image/png,image/jpeg" required>
+                        <input type='file' id = 'img' name = 'img' accept='image/png,image/jpeg' required>
                     </div>               
                 </div>
+                "
+                ?>
                 <?php if(isset($_GET['failed'])) {
                     echo "<p style='color:red; font-weight:bold; text-align:center;'>".$_GET['failtext']."</p>";
                 }?>
@@ -115,7 +123,7 @@
             </form>
             </section>
         </main>
-    </div>
+            </div>
     <footer class = "footer">
         <h2>Wizard Co.</h2>
     </footer>

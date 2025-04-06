@@ -22,7 +22,7 @@
     <script src="./js/main.js" defer></script>
     <script src="./js/createlesson.js" defer></script>
     <script src="./js/toggle.js" defer></script>
-    <script src="./js/newmessage.js" defer></script>
+    <script src="./js/messagecount.js" defer></script>
 </head>
 
 <body>

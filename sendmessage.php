@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/sendmessage.js" defer></script>
-    <script src="./js/newmessage.js" defer></script>
+    <script src="./js/messagecount.js" defer></script>
 </head>
 
 <body>

@@ -1,7 +1,7 @@
 let firstRun = true;
 let lastCount = -1;
 function refresh() {
-    fetch("/themancerzone/php/messagecount.php").then(res => {
+    fetch("php/messagecount.php").then(res => {
         return res.json();
     }).then(data => {
       data.forEach((k)=>{messageDisplay(Object.entries(k))});
