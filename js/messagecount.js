@@ -4,7 +4,7 @@ function refresh() {
     fetch("php/messagecount.php").then(res => {
         return res.json();
     }).then(data => {
-      data.forEach((k)=>{messageDisplay(Object.entries(k))});
+      data.forEach((k)=>{messageDisplay(k)});
     }).catch(err => {
 
     });
@@ -14,7 +14,7 @@ setInterval(refresh, 5000);
 refresh();
 
 function messageDisplay(data) {
-  let messagecount = data[0][1];
+  let messagecount = data[0];
   if(firstRun) {
     firstRun = false;
     lastcount = messagecount;
