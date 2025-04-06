@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $datetime = str_replace("T"," ", mysqli_real_escape_string($connection,$_POST['datetime']));
     $img = $_FILES['img']['tmp_name'];
     $filetext = $_FILES['img']['type'];
+    echo $filetext;
     $filetype = explode('/',$filetext)[1];
     $sql = "SELECT username FROM users WHERE username = '$username'";
     $uniqueid = '';
