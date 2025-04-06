@@ -88,14 +88,5 @@ CREATE TABLE `message` (
     FOREIGN KEY (rusername) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (susername) REFERENCES users(username) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-DROP USER IF EXISTS 'webuser'@'localhost';
-
--- Create the user with the specified password
-CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'P@ssw0rd';
-
--- Grant all privileges on the lab9 database to webuser
-GRANT ALL PRIVILEGES ON lab9.* TO 'webuser'@'localhost';
-
 -- Apply the changes
 FLUSH PRIVILEGES;
