@@ -5,9 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $susername = mysqli_real_escape_string($connection,$_SESSION['username']);
         $rusername = mysqli_real_escape_string($connection,$_POST['rusername']);
         $message = mysqli_real_escape_string($connection,$_POST['message']);
-        echo $susername;
-        echo $rusername;
-        echo $message;
         date_default_timezone_set('America/Los_Angeles');
         $date = date('Y-m-d\TG:i');
         $sql = "START TRANSACTION";
@@ -19,13 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT `messagecount` FROM `users` WHERE `username` = '$rusername'";
         $result = mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
-        echo $row['messagecount'];
         $messagecount = $row['messagecount'];
         $messagecount = $messagecount + 1;
-        echo $messagecount;
         $sql = "UPDATE users SET `messagecount` = '$messagecount' WHERE `username` = '$rusername'";
         mysqli_query($connection,$sql);
-        //header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
+        header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
         die();
     }
 }

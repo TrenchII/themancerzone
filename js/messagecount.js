@@ -6,7 +6,7 @@ function refresh() {
     }).then(data => {
       data.forEach((k)=>{messageDisplay(Object.entries(k))});
     }).catch(err => {
-      
+
     });
 }
 
@@ -20,7 +20,8 @@ function messageDisplay(data) {
     lastcount = messagecount;
   }
   else if(messagecount > lastcount) {
+    diff = messagecount - lastcount;
     lastcount = messagecount;
-    alert("You have " + lastcount + " new messages!");
+    alert("You have " + diff + " new messages!");
   }
 }
