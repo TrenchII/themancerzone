@@ -14,7 +14,7 @@ setInterval(refresh, 5000);
 refresh();
 
 function messageDisplay(data) {
-  let messagecount = data;
+  let messagecount = parseInt(data);
   if(firstRun) {
     firstRun = false;
     lastcount = messagecount;
