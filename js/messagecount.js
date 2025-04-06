@@ -5,6 +5,8 @@ function refresh() {
         return res.json();
     }).then(data => {
       data.forEach((k)=>{messageDisplay(Object.entries(k))});
+    }).catch(err => {
+      
     });
 }
 
