@@ -67,7 +67,7 @@
                 ?>
             </section>
             <section class="search">
-                <form id="searchform" action="/themancerzone/modpage.php" method='POST' novalidate>
+                <form id="searchform" action="rdecrewe/themancerzone/modpage.php" method='POST' novalidate>
                     <input type="text" id="searchbox" name="search" placeholder="Start your Wizarding Search Today">
                     <button type="submit" form="searchform" class="searchbtn"><i
                             class="fa-solid fa-arrow-right"></i></button>
