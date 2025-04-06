@@ -20,7 +20,7 @@ function messageDisplay(data) {
     lastcount = messagecount;
   }
   else if(messagecount > lastcount) {
-    diff = messagecount - lastcount;
+    let diff = messagecount - lastcount;
     lastcount = messagecount;
     alert("You have " + diff + " new messages!");
   }
