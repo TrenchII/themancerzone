@@ -18,7 +18,6 @@
    </head>
    <body>
     <?php session_start(); require_once 'php/connectDB.php';?>
-    <?php echo ("<p>".ini_get('upload_max_size')."</p>");?>
     <div class = "maincontent">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

@@ -34,6 +34,12 @@ function submitHandler(e) {
             alterText(el, "This field is required!");
             validSubmission = false;
         }
+        else if (el.name == "img" && el.files[0].size > 2097152) {
+            removeText(el);
+            // do something
+            alterText(el, "File is too large, limit it to below 2MB");
+            validSubmission = false;
+        }
         else if (el.name == "img" && el.value.length == 0 ) {
             removeText(el);
             // do something

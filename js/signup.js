@@ -49,6 +49,12 @@ function submitHandler(e) {
             alterText(el, "This field is required!");
             validSubmission = false;
         }
+        if (el.name == "img" && el.files[0].size > 2097152) {
+            removeText(el);
+            // do something
+            alterText(el, "File is too large, limit it to below 2MB");
+            validSubmission = false;
+        }        
         emailregex = /^[^@]+@[^@]+\.[^@]+$/;
         if(el.name == 'email' && !(el.value.match(emailregex))){
             removeText(el);
