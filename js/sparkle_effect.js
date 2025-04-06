@@ -1,8 +1,8 @@
 let sounds = [];
 for (let i = 0; i < 9; i++) {
-  sounds[i] = new Audio('rdecrewe/themancerzone/sounds/whoosh.mp3');
+  sounds[i] = new Audio('/rdecrewe/themancerzone/sounds/whoosh.mp3');
 }
-sounds[9] = new Audio('rdecrewe/themancerzone/sounds/alakazam.mp3');
+sounds[9] = new Audio('/rdecrewe/themancerzone/sounds/alakazam.mp3');
 let throttleTimeout;
 document.addEventListener("mousemove", (e) => {
   if (throttleTimeout) return;
