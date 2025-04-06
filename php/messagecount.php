@@ -9,11 +9,11 @@
                 $msg = $row['messagecount'];
                 $messagecount = [$msg];
             }
+            ob_end_clean();
+            header('Content-type:application/json');
+            echo json_encode($messagecount);
         }
         else {
             header('location:/rdecrewe/themancerzone/mainpage.php');
         }
-        ob_end_clean();
-        header('Content-type:application/json');
-        echo json_encode($messagecount);
         ?>
