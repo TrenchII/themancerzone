@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_query($connection,$sql);
         $sql = "INSERT INTO `message` (rusername,susername,`message`,`date`) VALUES ('$rusername','$susername','$message','$date')";
         mysqli_query($connection,$sql);
-        $sql = "SELECT `messagecount` FROM `users` WHERE `username` = '$rusername";
+        $sql = "SELECT `messagecount` FROM `users` WHERE `username` = '$rusername'";
         $result = mysqli_query($connection,$sql);
         $row = mysqli_fetch_assoc($result);
         while($row) {
