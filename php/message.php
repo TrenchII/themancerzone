@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo $row['messagecount'];
         $messagecount = $row['messagecount'];
         $messagecount = $messagecount + 1;
+        echo $messagecount;
         $sql = "UPDATE users SET `messagecount` = '$messagecount' WHERE `username` = '$rusername'";
         mysqli_query($connection,$sql);
         //header ('Location:/rdecrewe/themancerzone/profile.php?username='.$rusername);
