@@ -82,6 +82,7 @@ document.addEventListener("click", (e) => {
     sparkleContainer.style.width = "100%";
     sparkleContainer.style.height = "100%";
     sparkleContainer.style.pointerEvents = "none";
+    sparkleContainer.style.overflow = "hidden";
     document.body.appendChild(sparkleContainer);
   }
 

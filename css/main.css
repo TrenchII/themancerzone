@@ -519,3 +519,4 @@ body {
     ); 
     box-shadow: 0 0 6px #fff, 0 0 10px #ff0;
   }
+  sparkleContainer.style.overflow = "hidden";
