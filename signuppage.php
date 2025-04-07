@@ -26,7 +26,7 @@
                 <a href="profile.php">Profile</a>
                 <a href="lessons.php">Lessons</a>
                 <a href="inbox.php">Inbox</a>
-                <a href="modpage.php">Moderator Tools</a>
+                echo <a href="modpage.php?search=''">Moderator Tools</a>;
               </div>
             <main id = "main">
                 <section class="main-heading">
