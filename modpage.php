@@ -116,7 +116,7 @@
             if ($_SERVER['REQUEST_METHOD'] == "GET") {
                 if (isset($_GET['search'])) {
                     $search = $_GET['search'];
-                    $sql = "SELECT `displayname`,`username`,`pfpid` FROM users WHERE displayname LIKE '%" . $search . "%'";
+                    $sql = "SELECT `displayname`,`username`,`pfpid`,`email` FROM users WHERE displayname LIKE '%" . $search . "%'";
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
