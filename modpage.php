@@ -67,7 +67,7 @@
                 ?>
             </section>
             <section class="search">
-                <form id="searchform" action="/rdecrewe/themancerzone/modpage.php" method='POST' novalidate>
+                <form id="searchform" action="/rdecrewe/themancerzone/modpage.php" method='GET' novalidate>
                     <input type="text" id="searchbox" name="search" placeholder="Start your Wizarding Search Today">
                     <button type="submit" form="searchform" class="searchbtn"><i
                             class="fa-solid fa-arrow-right"></i></button>
@@ -77,9 +77,9 @@
                 <h1>Lessons</h1>
             </div>
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if (isset($_POST['search'])) {
-                    $search = $_POST['search'];
+            if ($_SERVER['REQUEST_METHOD'] == "GET") {
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
                     $sql = "SELECT `lessonid`,`title`,`description`,`pfpid` FROM lesson WHERE title LIKE '%" . $search . "%'";
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) > 0) {
@@ -113,9 +113,9 @@
                 <h1>Creators</h1>
             </div>
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if (isset($_POST['search'])) {
-                    $search = $_POST['search'];
+            if ($_SERVER['REQUEST_METHOD'] == "GET") {
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
                     $sql = "SELECT `displayname`,`username`,`pfpid` FROM users WHERE displayname LIKE '%" . $search . "%'";
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) > 0) {
@@ -146,9 +146,9 @@
                 <h1>Messages</h1>
             </div>
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                if (isset($_POST['search'])) {
-                    $search = $_POST['search'];
+            if ($_SERVER['REQUEST_METHOD'] == "GET") {
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
                     $sql = "SELECT `rusername`,`susername`,`message`,`date`, `messageid` FROM `message` WHERE susername LIKE '%" . $search . "%'";
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) > 0) {
