@@ -91,15 +91,15 @@
                 <div class='formboxlabel'>
                     <p class = 'inputlabel'>Display Name</p>
                     <div style='width:100%'>
-                        <input type='text' class='formcontrol' name='displayname' placeholder='$displayname' required>
+                        <input type='text' class='formcontrol' name='displayname' value='$displayname' required>
                     </div>
                     <p class = 'inputlabel'>Username</p>
                     <div style='width:100%'>
-                        <input type='text' class='formcontrol' name='username' placeholder='$username' required>
+                        <input type='text' class='formcontrol' name='username' value='$username' required>
                     </div>
                     <p class = 'inputlabel'>Email</p>
                     <div style='width:100%'>
-                        <input type='email' class='formcontrol' name='email' placeholder='$email' required>
+                        <input type='email' class='formcontrol' name='email' value='$email' required>
                     </div>
                     <p class = 'inputlabel'>Password</p>
                     <div style='width:100%'>
