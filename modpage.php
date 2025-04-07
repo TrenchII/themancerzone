@@ -157,7 +157,7 @@
                             $sUserName = $row["susername"];
                             $message = $row["message"];
                             $date = $row["date"];
-                           $messageid = $row["messageid"]
+                           $messageid = $row["messageid"];
                             echo ("<section class = 'message'>");
                             echo("<div class = 'infopanel-small'>
                                     <div style='text-align:left'>
