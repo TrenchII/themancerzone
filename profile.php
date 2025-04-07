@@ -66,7 +66,7 @@
                 $row = mysqli_fetch_assoc($result);
                 $privileges = $row['privileges'];
                 if ($privileges == 1) {
-                    echo "<a href='modpage.html'>Moderator Tools</a>";
+                    echo "<a href='modpage.php'>Moderator Tools</a>";
                 }
                 echo "<a href='php/logout.php'>Logout</a>";
             } ?>
@@ -116,10 +116,10 @@
                             echo "<p class = 'toolbutton'><a href=$messageRoute>Message ".$displayname."</a></p>";
                         }
                         if ($privileges == 1 && $username == $profileusername) {
-                            echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                            echo "<p class='toolbutton'><a href='modpage.php'>Moderator Tools</a></p>";
                         }
                         else if($privileges == 1) {
-                            echo "<p class='toolbutton'><a href='modpage.html'>Moderator Tools</a></p>";
+                            echo "<p class='toolbutton'><a href='modpage.php'>Moderator Tools</a></p>";
                             echo "<p class = 'toolbutton' style='color:red'><a href='php/deleteuser.php?username=".$profileusername."'>Delete User</a></p>";
                         }
                         
