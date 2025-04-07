@@ -76,7 +76,6 @@
             $row = mysqli_fetch_assoc($result);
             $displayname = $row['displayname'];
             $email = $row['email'];
-            $pfpid = $row['password'];
             echo "
                 </section>
             </section>
