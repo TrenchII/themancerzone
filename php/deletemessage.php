@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $sql = "COMMIT";
         mysqli_query($connection,$sql);
 
-        header('location:/rdecrewe/themancerzone/modpage.php');
+        header('location:/rdecrewe/themancerzone/modpage.php?search=''');
         mysqli_close($connection);
         die();
     }
