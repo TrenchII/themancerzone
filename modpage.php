@@ -149,7 +149,7 @@
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if (isset($_POST['search'])) {
                     $search = $_POST['search'];
-                    $sql = "SELECT `rusername`,`susername`,`message`,`date` FROM `message` WHERE susername LIKE '%" . $search . "%'";
+                    $sql = "SELECT `rusername`,`susername`,`message`,`date`, `messageid` FROM `message` WHERE susername LIKE '%" . $search . "%'";
                     $result = mysqli_query($connection, $sql);
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -157,11 +157,12 @@
                             $sUserName = $row["susername"];
                             $message = $row["message"];
                             $date = $row["date"];
+                           $messageid = $row["messageid"]
                             echo ("<section class = 'message'>");
                             echo("<div class = 'infopanel-small'>
                                     <div style='text-align:left'>
                                     <p><a href='/rdecrewe/themancerzone/profile.php?username=".$rUserName."'><span style='font-weight: bold;'>From: </span>".$sUserName."</a>
-                                    <span class = 'toolbutton' style='color:red'><a href='php/deletemessage.php?lessonid=".$lessonID."'>Delete Message</a></span></p>
+                                    <span class = 'toolbutton' style='color:red'><a href='php/deletemessage.php?messageid=".$messageid."'>Delete Message</a></span></p>
                                     <p style='font-style:italic'>".$message."</p>
                                     <p style='color:#ada99b; font-style: italic;'>".$date."</div></div>");
                                     echo("
