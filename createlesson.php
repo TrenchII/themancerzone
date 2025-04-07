@@ -41,7 +41,7 @@
                 $result = mysqli_query($connection, $sql);
                 $row = mysqli_fetch_assoc($result);
                 if ($row['privileges'] == 1) {
-                    echo "<a href='modpage.php'>Moderator Tools</a>";
+                    echo "<a href='modpage.php?search='''>Moderator Tools</a>";
                 }
                 echo "<a href='php/logout.php'>Logout</a>";
             }
