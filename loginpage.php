@@ -20,7 +20,7 @@
             <a href="profile.php">Profile</a>
             <a href="lessons.php">Lessons</a>
             <a href="inbox.php">Inbox</a>
-            <a href="modpage.html">Moderator Tools</a>
+            <a href="modpage.php">Moderator Tools</a>
           </div>
         <main id = "main">
             <section class="main-heading">
