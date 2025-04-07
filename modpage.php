@@ -161,7 +161,7 @@
                             echo("<div class = 'infopanel-small'>
                                     <div style='text-align:left'>
                                     <p><a href='/rdecrewe/themancerzone/profile.php?username=".$rUserName."'><span style='font-weight: bold;'>From: </span>".$sUserName."</a>
-                                    <span class = 'toolbutton' style='color:red'><a href='php/deletelesson.php?lessonid=".$lessonID."'>Delete Lesson</a></span></p>
+                                    <span class = 'toolbutton' style='color:red'><a href='php/deletemessage.php?lessonid=".$lessonID."'>Delete Message</a></span></p>
                                     <p style='font-style:italic'>".$message."</p>
                                     <p style='color:#ada99b; font-style: italic;'>".$date."</div></div>");
                                     echo("
