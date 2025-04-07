@@ -165,6 +165,6 @@ function playSound() {
   const sound = sounds[randomSoundIndex];
 
   sound.currentTime = 0; // Reset sound to start
-  sound.volume = 0.50;
+  sound.volume = 0.10;
   sound.play();
 }
