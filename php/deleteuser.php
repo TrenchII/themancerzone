@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once('logout.php');
             }
         } 
-        header('location:/rdecrewe/themancerzone/mainpage.php');
+        header('location:'.$_SERVER['HTTP_REFERER']);
         mysqli_close($connection);
         die();
     }
