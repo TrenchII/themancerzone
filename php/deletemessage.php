@@ -17,6 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
         die();
     }
 }
-header('location:'.$_SERVER['HTTP_REFERER']);
+header('location:/rdecrewe/themancerzone/modpage.php');
 mysqli_close($connection);
 ?>
